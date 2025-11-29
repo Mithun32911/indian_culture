@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { initiateForgotPassword } from '../services/authService';
 import './Admin.css';
 
 const AdminLogin = ({ onLogin }) => {
@@ -13,6 +14,7 @@ const AdminLogin = ({ onLogin }) => {
   const [forgotMessage, setForgotMessage] = useState('');
   const [error, setError] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const getSavedCredentials = () => {
     const saved = localStorage.getItem('adminCredentials');
@@ -73,15 +75,15 @@ const AdminLogin = ({ onLogin }) => {
     const matchesEmail = identifier === saved.email && password === saved.password;
     if (matchesUsername || matchesEmail) {
       setError('');
-      // show an inline success banner, then proceed with onLogin
+      // show success both as top toast and inline message
+      setSuccessMessage('Login successful');
       setShowSuccess(true);
-      // auto-dismiss after 900ms and then call onLogin to continue navigation
+      // proceed after a short delay so the user sees the toast
       setTimeout(() => {
         setShowSuccess(false);
+        setSuccessMessage('');
         onLogin();
       }, 900);
-      // Optional small success feedback
-      // setError('Login successful!');
     } else {
       setError('Invalid credentials. Please try again or register.');
     }
@@ -193,6 +195,7 @@ const AdminLogin = ({ onLogin }) => {
               <button type="button" className="admin-btn" onClick={() => setIsRegistering(true)}>Register</button>
             </div>
             {error && <div className="auth-error">{error}</div>}
+            {successMessage && <div className="auth-success" style={{ color: '#1b5e20' }}>{successMessage}</div>}
             <div style={{ marginTop: 12 }}>
               <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                 <input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} /> Remember me

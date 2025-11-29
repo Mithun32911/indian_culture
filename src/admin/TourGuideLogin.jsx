@@ -10,6 +10,7 @@ const TourGuideLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [showForgot, setShowForgot] = useState(false);
   const [forgotEmail, setForgotEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -53,12 +54,17 @@ const TourGuideLogin = () => {
       if (result.success) {
         // Ensure role matches tour-guide
         if (result.user.role === 'tour-guide') {
+          // show success message briefly then navigate
+          setSuccessMessage('Login successful! Redirecting...');
           const previousPage = sessionStorage.getItem('previousPage');
-          if (previousPage) {
-            navigate(`${result.user.dashboard}?from=${encodeURIComponent(previousPage)}`);
-          } else {
-            navigate(result.user.dashboard);
-          }
+          setTimeout(() => {
+            setSuccessMessage('');
+            if (previousPage) {
+              navigate(`${result.user.dashboard}?from=${encodeURIComponent(previousPage)}`);
+            } else {
+              navigate(result.user.dashboard);
+            }
+          }, 800);
         } else {
           setError('Invalid credentials for Tour Guide login. Please check your role.');
         }
@@ -140,6 +146,9 @@ const TourGuideLogin = () => {
           )}
           {error && (
             <div className="auth-error">{error}</div>
+          )}
+          {successMessage && (
+            <div className="auth-success" style={{ color: '#1b5e20' }}>{successMessage}</div>
           )}
 
           <div style={{ marginTop: '1rem' }}>

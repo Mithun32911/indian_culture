@@ -9,6 +9,7 @@ const CulturalEnthusiastLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [showForgot, setShowForgot] = useState(false);
   const [forgotEmail, setForgotEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -41,7 +42,11 @@ const CulturalEnthusiastLogin = () => {
       if (result.success) {
         // Check if user role matches the login type (admin for cultural enthusiast)
         if (result.user.role === 'admin') {
-          navigate(result.user.dashboard);
+          setSuccessMessage('Login successful! Redirecting...');
+          setTimeout(() => {
+            setSuccessMessage('');
+            navigate(result.user.dashboard);
+          }, 800);
         } else {
           setError('Invalid credentials for Admin login. Please check your role.');
         }
@@ -159,6 +164,9 @@ const CulturalEnthusiastLogin = () => {
           }}>{loading ? 'Logging in...' : 'Login'}</button>
           {error && (
             <div style={{ color: '#ff6b6b', marginTop: '1rem', fontWeight: 'bold', fontSize: '1rem' }}>{error}</div>
+          )}
+          {successMessage && (
+            <div style={{ color: '#1b5e20', marginTop: '1rem', fontWeight: '800', fontSize: '1rem', textAlign: 'center' }}>{successMessage}</div>
           )}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', margin: '2rem 0 1rem 0' }}>
             <a href="#" style={{ color: '#fff', fontSize: '1.5rem', textShadow: '0 0 8px #1976d2' }}><i className="fab fa-facebook-f"></i></a>
