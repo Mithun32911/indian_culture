@@ -9,6 +9,7 @@ const ContentCreatorLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [showForgot, setShowForgot] = useState(false);
   const [forgotEmail, setForgotEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -51,13 +52,17 @@ const ContentCreatorLogin = () => {
       if (result.success) {
         // Check if user role matches the login type
         if (result.user.role === 'content-creator') {
-          // Navigate to content creator dashboard (or previous page if stored)
+          // Show success message briefly then navigate
+          setSuccessMessage('Login successful! Redirecting...');
           const previousPage = sessionStorage.getItem('previousPage');
-          if (previousPage) {
-            navigate(`${result.user.dashboard}?from=${encodeURIComponent(previousPage)}`);
-          } else {
-            navigate(result.user.dashboard);
-          }
+          setTimeout(() => {
+            setSuccessMessage('');
+            if (previousPage) {
+              navigate(`${result.user.dashboard}?from=${encodeURIComponent(previousPage)}`);
+            } else {
+              navigate(result.user.dashboard);
+            }
+          }, 800);
         } else {
           setError('Invalid credentials for Content Creator login. Please check your role.');
         }
@@ -135,6 +140,9 @@ const ContentCreatorLogin = () => {
           )}
           {error && (
             <div className="auth-error">{error}</div>
+          )}
+          {successMessage && (
+            <div className="auth-success" style={{ color: '#1b5e20' }}>{successMessage}</div>
           )}
 
           <div style={{ marginTop: '1rem' }}>
