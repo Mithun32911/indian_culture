@@ -3,6 +3,7 @@ import './HeritageDetail.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { monumentData } from '../database/data.js';
 import { Button, Typography, Box, Card, CardContent } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const imageMap = {
   'Taj Mahal': '/tajmahal.jpg',
@@ -17,9 +18,10 @@ export default function HeritageDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const item = monumentData.find((m) => m.id === Number(id));
+  const { t } = useTranslation();
 
   if (!item) {
-    return <Typography variant="h6">Heritage site not found.</Typography>;
+    return <Typography variant="h6">{t('heritagePage.title')}</Typography>;
   }
 
   // Example of more detailed info for each monument
@@ -60,7 +62,7 @@ export default function HeritageDetail() {
 
   return (
     <Box className="heritage-bg" sx={{ maxWidth: 900, mx: 'auto', mt: 4, p: 2 }}>
-      <Button variant="outlined" onClick={() => navigate(-1)} sx={{ mb: 2 }}>Back</Button>
+      <Button variant="outlined" onClick={() => navigate(-1)} sx={{ mb: 2 }}>{t('nav.back')}</Button>
   <Card sx={{ bgcolor: '#fff', boxShadow: 6, borderRadius: 4 }}>
         <CardContent>
           <Typography variant="h4" gutterBottom>{item.name}</Typography>
@@ -70,17 +72,17 @@ export default function HeritageDetail() {
             style={{ width: '100%', maxHeight: 350, objectFit: 'cover', borderRadius: 12, marginBottom: 16 }}
           />
           <Typography variant="body1" sx={{ mb: 2 }}>{item.description}</Typography>
-          <Typography variant="subtitle1"><strong>Location:</strong> {item.location}</Typography>
-          <Typography variant="subtitle1"><strong>Built:</strong> {item.built}</Typography>
-          <Typography variant="subtitle1"><strong>Builder:</strong> {item.builder}</Typography>
-          <Typography variant="subtitle1"><strong>Entry Fee:</strong> {item.entryFee}</Typography>
+          <Typography variant="subtitle1"><strong>{t('heritagePage.location')}:</strong> {item.location}</Typography>
+          <Typography variant="subtitle1"><strong>{t('heritagePage.built')}:</strong> {item.built}</Typography>
+          <Typography variant="subtitle1"><strong>{t('heritagePage.builder')}:</strong> {item.builder}</Typography>
+          <Typography variant="subtitle1"><strong>{t('heritagePage.entry_fee')}:</strong> {item.entryFee}</Typography>
           {details && (
             <Box sx={{ mt: 3, p: 2, background: '#fffde7', borderRadius: 2 }}>
-              <Typography variant="h6" gutterBottom>History</Typography>
+              <Typography variant="h6" gutterBottom>{t('heritagePage.history_title')}</Typography>
               <Typography variant="body2" sx={{ mb: 1 }}>{details.history}</Typography>
-              <Typography variant="h6" gutterBottom>Architecture</Typography>
+              <Typography variant="h6" gutterBottom>{t('heritagePage.architecture_title')}</Typography>
               <Typography variant="body2" sx={{ mb: 1 }}>{details.architecture}</Typography>
-              <Typography variant="h6" gutterBottom>Fun Fact</Typography>
+              <Typography variant="h6" gutterBottom>{t('heritagePage.fun_fact')}</Typography>
               <Typography variant="body2">{details.funFact}</Typography>
             </Box>
           )}

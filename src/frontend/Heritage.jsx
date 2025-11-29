@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useUserProgress } from '../context/UserProgressContext';
 import { heritageSites } from '../database/data.js';
 import { Card, CardContent, Typography, Box, Grid, Button, Chip, Dialog, DialogTitle, DialogContent, DialogActions, Stack } from '@mui/material';
@@ -8,6 +9,7 @@ import './Frontend.css';
 
 const Heritage = () => {
   const { incrementHeritagesAttended, addFavorite, removeFavorite, isFavorite } = useUserProgress();
+  const { t } = useTranslation();
   const [selectedSite, setSelectedSite] = useState(null);
   const [dialogImageSrc, setDialogImageSrc] = useState(null);
   const [dialogImageCandidates, setDialogImageCandidates] = useState([]);
@@ -68,22 +70,19 @@ const Heritage = () => {
               fontSize: '0.95rem',
               fontWeight: 600,
             }}
-            title="Back to Dashboard"
+            title={t('nav.back', 'Back')}
           >
-            Back
+            {t('nav.back')}
           </Button>
-          <h1>India's Heritage Sites</h1>
-          <p className="page-subtitle">
-            Discover the UNESCO World Heritage Sites and ancient monuments that 
-            showcase India's glorious past and architectural marvels
-          </p>
+          <h1>{t('heritagePage.title')}</h1>
+          <p className="page-subtitle">{t('heritagePage.subtitle')}</p>
         </section>
 
        
 
         {/* Heritage Sites Grid */}
-  <section className="heritage-sites" style={{ marginTop: '-40px' }}>
-          <h2 className="section-title">Featured Heritage Sites</h2>
+    <section className="heritage-sites" style={{ marginTop: '-40px' }}>
+      <h2 className="section-title">{t('heritagePage.featured')}</h2>
           <Grid container spacing={3} className="sites-grid" justifyContent="center" alignItems="stretch">
             {heritageSites.map(site => (
               <Grid item xs={12} md={6} lg={4} key={site.id} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -109,22 +108,22 @@ const Heritage = () => {
                 >
                   <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 270, overflow: 'visible', pb: '0 !important' }}>
                     <Box display="flex" alignItems="center" justifyContent="space-between">
-                      <Typography variant="h6">{site.name}</Typography>
+                      <Typography variant="h6">{t(`content.heritage.${site.id}.name`, site.name)}</Typography>
                     </Box>
                     <Box>
-                      <Typography variant="body2" sx={{ mt: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{site.description}</Typography>
-                      <Typography variant="caption" sx={{ display: 'block', mt: 1 }}><strong>Location:</strong> {site.location} • <strong>Period:</strong> {site.period}</Typography>
-                      <Typography variant="caption" sx={{ display: 'block', mt: 1 }}><strong>Best Time:</strong> {site.bestTime}</Typography>
-                      <Typography variant="body2" sx={{ mt: 1 }}><strong>Highlights:</strong> {site.highlights}</Typography>
+                      <Typography variant="body2" sx={{ mt: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{t(`content.heritage.${site.id}.description`, site.description)}</Typography>
+                      <Typography variant="caption" sx={{ display: 'block', mt: 1 }}><strong>{t('heritagePage.location', 'Location')}:</strong> {t(`content.heritage.${site.id}.location`, site.location)} • <strong>{t('heritagePage.period', 'Period')}:</strong> {t(`content.heritage.${site.id}.period`, site.period)}</Typography>
+                      <Typography variant="caption" sx={{ display: 'block', mt: 1 }}><strong>{t('heritagePage.best_time', 'Best Time')}:</strong> {t(`content.heritage.${site.id}.bestTime`, site.bestTime)}</Typography>
+                      <Typography variant="body2" sx={{ mt: 1 }}><strong>{t('heritagePage.highlights', 'Highlights')}:</strong> {t(`content.heritage.${site.id}.highlights`, site.highlights)}</Typography>
                       <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                         {site.notableFeatures && site.notableFeatures.map((f, i) => (
-                          <Chip key={i} label={f} size="small" color="secondary" />
+                          <Chip key={i} label={t(`content.heritage.${site.id}.notableFeatures.${i}`, f)} size="small" color="secondary" />
                         ))}
                       </Box>
                     </Box>
                     
                   </CardContent>
-                  <Box px={2} pb={2} textAlign="right">
+                    <Box px={2} pb={2} textAlign="right">
                     <Button
                       variant="contained"
                       color="primary"
@@ -132,7 +131,7 @@ const Heritage = () => {
                       sx={{ mt: 2, borderRadius: '20px', px: 2 }}
                       onClick={() => openSiteDetails(site)}
                     >
-                      Explore
+                      {t('heritagePage.explore')}
                     </Button>
                   </Box>
                 </Card>
@@ -149,7 +148,7 @@ const Heritage = () => {
       {/* Site Details Modal */}
       {selectedSite && (
         <Dialog open={true} onClose={closeSiteDetails} maxWidth="sm" fullWidth>
-          <DialogTitle>{selectedSite.name}</DialogTitle>
+          <DialogTitle>{t(`content.heritage.${selectedSite.id}.name`, selectedSite.name)}</DialogTitle>
           <Box sx={{ width: '100%', height: { xs: 160, sm: 220 }, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             {dialogImageSrc ? (
               <img
@@ -168,31 +167,31 @@ const Heritage = () => {
           </Box>
           <DialogContent dividers>
             <Box mb={2}>
-              <Typography variant="subtitle1">Location</Typography>
-              <Typography variant="body2">{selectedSite.location}</Typography>
+              <Typography variant="subtitle1">{t('heritagePage.location', 'Location')}</Typography>
+              <Typography variant="body2">{t(`content.heritage.${selectedSite.id}.location`, selectedSite.location)}</Typography>
             </Box>
             <Box mb={2}>
-              <Typography variant="subtitle1">Period</Typography>
-              <Typography variant="body2">{selectedSite.period}</Typography>
+              <Typography variant="subtitle1">{t('heritagePage.period', 'Period')}</Typography>
+              <Typography variant="body2">{t(`content.heritage.${selectedSite.id}.period`, selectedSite.period)}</Typography>
             </Box>
             <Box mb={2}>
-              <Typography variant="subtitle1">Description</Typography>
-              <Typography variant="body2">{selectedSite.description}</Typography>
+              <Typography variant="subtitle1">{t('heritagePage.description', 'Description')}</Typography>
+              <Typography variant="body2">{t(`content.heritage.${selectedSite.id}.description`, selectedSite.description)}</Typography>
             </Box>
             <Box mb={2}>
-              <Typography variant="subtitle1">Significance</Typography>
-              <Typography variant="body2">{selectedSite.significance}</Typography>
+              <Typography variant="subtitle1">{t('heritagePage.significance', 'Significance')}</Typography>
+              <Typography variant="body2">{t(`content.heritage.${selectedSite.id}.significance`, selectedSite.significance)}</Typography>
             </Box>
           </DialogContent>
           <DialogActions>
             {selectedSite && (
-              isFavorite({ id: selectedSite.id, type: 'heritage' }) ? (
-                <Button onClick={() => { removeFavorite({ id: selectedSite.id, type: 'heritage' }); }} color="secondary">Unfavorite</Button>
-              ) : (
-                <Button onClick={() => { addFavorite({ id: selectedSite.id, type: 'heritage', name: selectedSite.name }); }} color="primary">Fav</Button>
+               isFavorite({ id: selectedSite.id, type: 'heritage' }) ? (
+                 <Button onClick={() => { removeFavorite({ id: selectedSite.id, type: 'heritage' }); }} color="secondary">{t('culturePage.unfavorite')}</Button>
+               ) : (
+                 <Button onClick={() => { addFavorite({ id: selectedSite.id, type: 'heritage', name: selectedSite.name }); }} color="primary">{t('culturePage.favorite')}</Button>
               )
             )}
-            <Button onClick={closeSiteDetails} color="primary">Close</Button>
+            <Button onClick={closeSiteDetails} color="primary">{t('heritagePage.close')}</Button>
           </DialogActions>
         </Dialog>
       )}

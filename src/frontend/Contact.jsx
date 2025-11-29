@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Select, MenuItem, InputLabel, FormControl, Typography, Box, Alert, Grid, Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import './Frontend.css';
 
 const Contact = () => {
@@ -11,6 +12,7 @@ const Contact = () => {
   });
   
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { t } = useTranslation();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -54,23 +56,23 @@ const Contact = () => {
   textAlign: 'center',
   display: 'block',
       }}>
-  <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#2c2929ff', letterSpacing: '2px', marginBottom: '2rem' }}>💬 Contact Us</h2>
+  <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#2c2929ff', letterSpacing: '2px', marginBottom: '2rem' }}>{t('contact.header')}</h2>
         {isSubmitted ? (
           <div style={{ color: '#0f0d0dff', marginTop: '2rem' }}>
             <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
-            <h3 style={{ marginBottom: '1rem' }}>Thank You!</h3>
-            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+            <h3 style={{ marginBottom: '1rem' }}>{t('contact.thank_title')}</h3>
+            <p>{t('contact.success_msg')}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <p style={{ color: '#111111ff', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '2rem' }}>Please share your thoughts, questions, or suggestions!</p>
-            <label htmlFor="name" style={{ color: '#080808ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>Full Name</label>
+            <p style={{ color: '#111111ff', fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '2rem' }}>{t('contact.lead')}</p>
+            <label htmlFor="name" style={{ color: '#080808ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>{t('contact.name_label')}</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              placeholder="Enter Your Full Name"
+              placeholder={t('contact.name_placeholder')}
               required
               style={{
                 width: '100%',
@@ -85,13 +87,13 @@ const Contact = () => {
                 outline: 'none',
               }}
             />
-            <label htmlFor="email" style={{ color: '#000000ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>Email Address</label>
+            <label htmlFor="email" style={{ color: '#000000ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>{t('contact.email_label')}</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              placeholder="Email Address"
+              placeholder={t('contact.email_placeholder')}
               required
               style={{
                 width: '100%',
@@ -124,20 +126,20 @@ const Contact = () => {
                 outline: 'none',
               }}
             >
-              <option value="">Select Subject</option>
-              <option value="general">General Inquiry</option>
-              <option value="cultural-data">Cultural Data Contribution</option>
-              <option value="monument-info">Monument Information</option>
-              <option value="collaboration">Collaboration Opportunity</option>
-              <option value="technical">Technical Issue</option>
-              <option value="feedback">Feedback & Suggestions</option>
+              <option value="">{t('contact.subject_placeholder')}</option>
+              <option value="general">{t('contact.option_general')}</option>
+              <option value="cultural-data">{t('contact.option_cultural_data')}</option>
+              <option value="monument-info">{t('contact.option_monument_info')}</option>
+              <option value="collaboration">{t('contact.option_collaboration')}</option>
+              <option value="technical">{t('contact.option_technical')}</option>
+              <option value="feedback">{t('contact.option_feedback')}</option>
             </select>
-            <label htmlFor="message" style={{ color: '#070707ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>Your Message</label>
+            <label htmlFor="message" style={{ color: '#070707ff', fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.3rem', display: 'block', textAlign: 'left' }}>{t('contact.message_label')}</label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="Your Message"
+              placeholder={t('contact.message_placeholder')}
               required
               rows="5"
               style={{
@@ -171,7 +173,7 @@ const Contact = () => {
                 letterSpacing: '1px',
               }}
             >
-              📤 Send Message
+              {t('contact.send_button')}
             </button>
           </form>
         )}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 function ArticlePreview({ article }) {
-  if (!article) return <Typography>No article to preview.</Typography>;
+  const { t } = useTranslation();
+  if (!article) return <Typography>{t('articlePreview.no_article')}</Typography>;
   return (
     <Box sx={{ maxWidth: 700, mx: 'auto', mt: 4, p: 3, background: '#fff', borderRadius: 2, boxShadow: 2 }}>
       <Typography variant="h4" sx={{ mb: 2 }}>{article.title}</Typography>
@@ -12,7 +14,7 @@ function ArticlePreview({ article }) {
           <img
             key={idx}
             src={typeof img === 'string' ? img : URL.createObjectURL(img)}
-            alt="article-img"
+            alt={t('articlePreview.image_alt')}
             style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 8 }}
           />
         ))}

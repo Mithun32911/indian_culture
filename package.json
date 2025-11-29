@@ -15,7 +15,9 @@
     "@mui/material": "^7.3.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.1"
+    "react-router-dom": "^7.9.1",
+    "i18next": "^23.0.1",
+    "react-i18next": "^13.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

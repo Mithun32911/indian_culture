@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { culturalData, monumentData, heritageSites } from '../database/data.js';
 import './Admin.css';
 
@@ -11,6 +12,7 @@ const STORAGE_KEYS = {
 };
 
 const ManageData = () => {
+  const { t } = useTranslation();
   // Utility functions for localStorage
   
   
@@ -31,80 +33,80 @@ const ManageData = () => {
   const navigate = useNavigate();
   const renderHeritageForm = () => (
     <form onSubmit={handleSubmit} className="manage-form">
-      <h3>{editingId ? 'Edit Heritage Site' : 'Add New Heritage Site'}</h3>
+      <h3>{editingId ? t('manageData.heritage_edit_title') : t('manageData.heritage_add_title')}</h3>
       <div className="form-row">
         <div className="form-group">
-          <label>Name:</label>
+          <label>{t('manageData.label_name')}</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             required
-            placeholder="e.g., Ajanta Caves"
+            placeholder={t('manageData.placeholder_example_name', 'e.g., Ajanta Caves')}
           />
         </div>
         <div className="form-group">
-          <label>Location:</label>
+          <label>{t('manageData.label_location')}</label>
           <input
             type="text"
             name="location"
             value={formData.location}
             onChange={handleInputChange}
             required
-            placeholder="e.g., Maharashtra, India"
+            placeholder={t('manageData.placeholder_location', 'e.g., Maharashtra, India')}
           />
         </div>
       </div>
       <div className="form-row">
         <div className="form-group">
-          <label>Period:</label>
+          <label>{t('manageData.label_period')}</label>
           <input
             type="text"
             name="period"
             value={formData.period}
             onChange={handleInputChange}
-            placeholder="e.g., 2nd century BCE to 480 CE"
+            placeholder={t('manageData.placeholder_period', 'e.g., 2nd century BCE to 480 CE')}
           />
         </div>
         <div className="form-group">
-          <label>Architecture:</label>
+          <label>{t('manageData.label_architecture')}</label>
           <input
             type="text"
             name="architecture"
             value={formData.architecture}
             onChange={handleInputChange}
-            placeholder="e.g., Buddhist rock-cut architecture"
+            placeholder={t('manageData.placeholder_architecture', 'e.g., Buddhist rock-cut architecture')}
           />
         </div>
       </div>
       <div className="form-group">
-        <label>Description:</label>
+        <label>{t('manageData.label_description')}</label>
         <textarea
           name="description"
           value={formData.description}
           onChange={handleInputChange}
           required
           rows="4"
-          placeholder="Detailed description..."
+          placeholder={t('manageData.placeholder_description', 'Detailed description...')}
         />
       </div>
       <div className="form-group">
-        <label>Significance:</label>
+        <label>{t('manageData.label_significance')}</label>
         <input
           type="text"
           name="significance"
           value={formData.significance}
           onChange={handleInputChange}
-          placeholder="Historical/cultural significance..."
+          placeholder={t('manageData.placeholder_significance', 'Historical/cultural significance...')}
         />
       </div>
       <div className="form-actions">
         <button type="submit" className="submit-btn">
-          {editingId ? 'Update' : 'Add'} Heritage Site
+          {editingId ? t('manageData.update') : t('manageData.add')} {t('manageData.heritage_site')}
         </button>
         <button type="button" onClick={resetForm} className="cancel-btn">
-          Cancel
+          {t('manageData.cancel')}
         </button>
       </div>
     </form>
@@ -246,30 +248,30 @@ const ManageData = () => {
 
   const renderCulturalForm = () => (
     <form onSubmit={handleSubmit} className="manage-form">
-      <h3>{editingId ? 'Edit Cultural Data' : 'Add New Cultural Data'}</h3>
+      <h3>{editingId ? t('manageData.cultural_edit_title') : t('manageData.cultural_add_title')}</h3>
       
       <div className="form-row">
         <div className="form-group">
-          <label>Name:</label>
+          <label>{t('manageData.label_name')}</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             required
-            placeholder="e.g., Diwali"
+            placeholder={t('manageData.placeholder_example_name', 'e.g., Diwali')}
           />
         </div>
         
         <div className="form-group">
-          <label>Type:</label>
+          <label>{t('manageData.label_type')}</label>
           <select
             name="type"
             value={formData.type}
             onChange={handleInputChange}
             required
           >
-            <option value="">Select Type</option>
+            <option value="">{t('manageData.select_type')}</option>
             <option value="Festival">Festival</option>
             <option value="Tradition">Tradition</option>
             <option value="Art Form">Art Form</option>
@@ -279,20 +281,20 @@ const ManageData = () => {
       </div>
       
       <div className="form-group">
-        <label>Description:</label>
+        <label>{t('manageData.label_description')}</label>
         <textarea
           name="description"
           value={formData.description}
           onChange={handleInputChange}
           required
           rows="4"
-          placeholder="Detailed description..."
+            placeholder={t('manageData.placeholder_description', 'Detailed description...')}
         />
       </div>
       
       <div className="form-row">
         <div className="form-group">
-          <label>Region:</label>
+          <label>{t('manageData.label_region')}</label>
           <input
             type="text"
             name="region"
@@ -303,7 +305,7 @@ const ManageData = () => {
         </div>
         
         <div className="form-group">
-          <label>Season:</label>
+          <label>{t('manageData.label_season')}</label>
           <input
             type="text"
             name="season"
@@ -315,7 +317,7 @@ const ManageData = () => {
       </div>
       
       <div className="form-group">
-        <label>Significance:</label>
+        <label>{t('manageData.label_significance')}</label>
         <input
           type="text"
           name="significance"
@@ -327,10 +329,10 @@ const ManageData = () => {
       
       <div className="form-actions">
         <button type="submit" className="submit-btn">
-          {editingId ? 'Update' : 'Add'} Cultural Data
+          {editingId ? t('manageData.update') : t('manageData.add')} {t('manageData.cultural_data')}
         </button>
         <button type="button" onClick={resetForm} className="cancel-btn">
-          Cancel
+          {t('manageData.cancel')}
         </button>
       </div>
     </form>
@@ -338,23 +340,23 @@ const ManageData = () => {
 
   const renderMonumentForm = () => (
     <form onSubmit={handleSubmit} className="manage-form">
-      <h3>{editingId ? 'Edit Monument Data' : 'Add New Monument Data'}</h3>
+      <h3>{editingId ? t('manageData.monument_edit_title') : t('manageData.monument_add_title')}</h3>
       
       <div className="form-row">
         <div className="form-group">
-          <label>Name:</label>
+          <label>{t('manageData.label_name')}</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             required
-            placeholder="e.g., Taj Mahal"
+            placeholder={t('manageData.placeholder_example_name', 'e.g., Taj Mahal')}
           />
         </div>
         
         <div className="form-group">
-          <label>Location:</label>
+          <label>{t('manageData.label_location')}</label>
           <input
             type="text"
             name="location"
@@ -368,7 +370,7 @@ const ManageData = () => {
       
       <div className="form-row">
         <div className="form-group">
-          <label>Built:</label>
+          <label>{t('manageData.label_built')}</label>
           <input
             type="text"
             name="built"
@@ -379,7 +381,7 @@ const ManageData = () => {
         </div>
         
         <div className="form-group">
-          <label>Builder:</label>
+          <label>{t('manageData.label_builder')}</label>
           <input
             type="text"
             name="builder"
@@ -391,20 +393,20 @@ const ManageData = () => {
       </div>
       
       <div className="form-group">
-        <label>Description:</label>
+        <label>{t('manageData.label_description')}</label>
         <textarea
           name="description"
           value={formData.description}
           onChange={handleInputChange}
           required
           rows="4"
-          placeholder="Detailed description..."
+          placeholder={t('manageData.placeholder_description', 'Detailed description...')}
         />
       </div>
       
       <div className="form-row">
         <div className="form-group">
-          <label>Type:</label>
+          <label>{t('manageData.label_type')}</label>
           <input
             type="text"
             name="type"
@@ -415,7 +417,7 @@ const ManageData = () => {
         </div>
         
         <div className="form-group">
-          <label>Architecture:</label>
+          <label>{t('manageData.label_architecture')}</label>
           <input
             type="text"
             name="architecture"
@@ -428,7 +430,7 @@ const ManageData = () => {
       
       <div className="form-row">
         <div className="form-group">
-          <label>Visiting Hours:</label>
+          <label>{t('manageData.label_visiting_hours')}</label>
           <input
             type="text"
             name="visitingHours"
@@ -439,7 +441,7 @@ const ManageData = () => {
         </div>
         
         <div className="form-group">
-          <label>Entry Fee:</label>
+          <label>{t('manageData.label_entry_fee')}</label>
           <input
             type="text"
             name="entryFee"
@@ -463,10 +465,10 @@ const ManageData = () => {
       
       <div className="form-actions">
         <button type="submit" className="submit-btn">
-          {editingId ? 'Update' : 'Add'} Monument Data
+          {editingId ? t('manageData.update') : t('manageData.add')} {t('manageData.monument_data')}
         </button>
         <button type="button" onClick={resetForm} className="cancel-btn">
-          Cancel
+          {t('manageData.cancel')}
         </button>
       </div>
     </form>
@@ -474,45 +476,45 @@ const ManageData = () => {
 
   const renderDataList = (data, type) => (
     <div className="data-list">
-      <h3>Current {type} Data</h3>
+      <h3>{t('manageData.current_data', { type })}</h3>
       <div className="data-grid">
         {data.map(item => (
           <div key={item.id} className="data-item">
             <h4>{item.name}</h4>
-            <p><strong>Type:</strong> {item.type}</p>
-            {item.location && <p><strong>Location:</strong> {item.location}</p>}
-            {item.region && <p><strong>Region:</strong> {item.region}</p>}
+            <p><strong>{t('manageData.label_type')}:</strong> {item.type}</p>
+            {item.location && <p><strong>{t('manageData.label_location')}:</strong> {item.location}</p>}
+            {item.region && <p><strong>{t('manageData.label_region')}:</strong> {item.region}</p>}
             <p className="description">{item.description.substring(0, 100)}...</p>
             <div className="item-actions">
               {type === 'Heritage Site' && activeTab === 'heritage' && (
                 <button
                   onClick={() => handleEdit(item, 'heritage')}
                   className="edit-btn"
-                >
-                  Edit
+                  >
+                  {t('manageData.edit')}
                 </button>
               )}
               {type === 'Monument' && activeTab === 'monuments' && (
                 <button
                   onClick={() => handleEdit(item, 'monument')}
                   className="edit-btn"
-                >
-                  Edit
+                  >
+                  {t('manageData.edit')}
                 </button>
               )}
               {type === 'Cultural' && activeTab === 'cultural' && (
                 <button
                   onClick={() => handleEdit(item, 'cultural')}
                   className="edit-btn"
-                >
-                  Edit
+                  >
+                  {t('manageData.edit')}
                 </button>
               )}
               <button
                 onClick={() => handleDelete(item.id, item.name)}
                 className="delete-btn"
               >
-                Delete
+                {t('manageData.delete')}
               </button>
             </div>
           </div>
@@ -527,8 +529,8 @@ const ManageData = () => {
         className="back-btn"
         style={{ position: 'absolute', right: 24, top: 24, padding: '8px 20px', borderRadius: '6px', background: '#6e6f72ff', color: 'white', border: 'none', fontWeight: '500', cursor: 'pointer', zIndex: 10 }}
         onClick={() => navigate('/admin')}
-      >
-        Back
+        >
+        {t('manageData.back')}
       </button>
      
       
@@ -537,19 +539,19 @@ const ManageData = () => {
           className={`tab-btn ${activeTab === 'cultural' ? 'active' : ''}`}
           onClick={() => setActiveTab('cultural')}
         >
-          Cultural Data
+          {t('manageData.tab_cultural')}
         </button>
         <button
           className={`tab-btn ${activeTab === 'monuments' ? 'active' : ''}`}
           onClick={() => setActiveTab('monuments')}
         >
-          Monuments
+          {t('manageData.tab_monuments')}
         </button>
         <button
           className={`tab-btn ${activeTab === 'heritage' ? 'active' : ''}`}
           onClick={() => setActiveTab('heritage')}
         >
-          Heritage Sites
+          {t('manageData.tab_heritage')}
         </button>
       </div>
       

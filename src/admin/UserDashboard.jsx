@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { monumentData } from '../database/data.js';
 import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { Button, Card, CardContent, Typography, Grid, Box, Tabs, Tab, Chip, Avatar, Stack, Badge, IconButton, Radio, RadioGroup, FormControlLabel } from '@mui/material';
@@ -52,6 +53,7 @@ function UserDashboard() {
   const [showCultureInline, _setShowCultureInline] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const [sharedContents, setSharedContents] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('sharedContents') || '[]');
@@ -91,10 +93,10 @@ function UserDashboard() {
   // Culture Visited aggregates cultural events and traditions explored
   const cultureVisitedCount = (culturalEventsAttended || 0) + (traditionsExplored || 0);
   const userProgress = [
-    { activity: 'Culture Visited', count: cultureVisitedCount },
-    { activity: 'Heritage Visited', count: heritagesAttended },
-    { activity: 'Monument Visited', count: monumentsVisited || visitedSites.length || 0 },
-    { activity: 'Learning Completed', count: learningModulesCompleted },
+    { activity: t('userDashboard.progress.cultureVisited'), count: cultureVisitedCount },
+    { activity: t('userDashboard.progress.heritageVisited'), count: heritagesAttended },
+    { activity: t('userDashboard.progress.monumentVisited'), count: monumentsVisited || visitedSites.length || 0 },
+    { activity: t('userDashboard.progress.learningCompleted'), count: learningModulesCompleted },
   ];
 
   return (
@@ -118,7 +120,7 @@ function UserDashboard() {
       }}>
         {/* Back to Site button removed */}
         <Box sx={{ flex: 1, textAlign: 'center', fontWeight: 'bold', fontSize: { xs: '2.5rem', md: '3.2rem' }, letterSpacing: 1 }}>
-          Welcome User! 
+          {t('userDashboard.welcome')}
         </Box>
         <Button
           variant="contained"
@@ -132,18 +134,18 @@ function UserDashboard() {
           }}
           onClick={() => navigate('/admin/user-login')}
         >
-          Logout
+          {t('userDashboard.logout')}
         </Button>
       </Box>
       {/* Top navbar with mode buttons (moved above 'Explore and discover') */}
   <Box sx={{ width: '100%', background: '#fff', py: 1, boxShadow: '0 1px 6px rgba(0,0,0,0.04)', mb: 0 }}>
         <Box sx={{ maxWidth: 1100, mx: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', px: 2 }}>
           <Stack direction="row" spacing={3} sx={{ flexWrap: 'wrap', gap: 2 }}>
-            <Button variant={tab === 0 ? 'contained' : 'text'} color={tab === 0 ? 'secondary' : 'primary'} onClick={() => setTab(0)} sx={{ fontWeight: 600, px: 1.5 }}>Dashboard</Button>
-            <Button variant={tab === 1 ? 'contained' : 'text'} color={tab === 1 ? 'secondary' : 'primary'} onClick={() => setTab(1)} sx={{ fontWeight: 600, px: 1.5 }}>My Journey</Button>
-            <Button variant={tab === 2 ? 'contained' : 'text'} color={tab === 2 ? 'secondary' : 'primary'} onClick={() => setTab(2)} sx={{ fontWeight: 600, px: 1.5 }}>Favorites</Button>
-            <Button variant={tab === 3 ? 'contained' : 'text'} color={tab === 3 ? 'secondary' : 'primary'} onClick={() => setTab(3)} sx={{ fontWeight: 600, px: 1.5 }}>Learning</Button>
-            <Button variant={tab === 4 ? 'contained' : 'text'} color={tab === 4 ? 'secondary' : 'primary'} onClick={() => setTab(4)} sx={{ fontWeight: 600, px: 1.5 }}>Profile</Button>
+            <Button variant={tab === 0 ? 'contained' : 'text'} color={tab === 0 ? 'secondary' : 'primary'} onClick={() => setTab(0)} sx={{ fontWeight: 600, px: 1.5 }}>{t('userDashboard.tab.dashboard')}</Button>
+            <Button variant={tab === 1 ? 'contained' : 'text'} color={tab === 1 ? 'secondary' : 'primary'} onClick={() => setTab(1)} sx={{ fontWeight: 600, px: 1.5 }}>{t('userDashboard.tab.myJourney')}</Button>
+            <Button variant={tab === 2 ? 'contained' : 'text'} color={tab === 2 ? 'secondary' : 'primary'} onClick={() => setTab(2)} sx={{ fontWeight: 600, px: 1.5 }}>{t('userDashboard.tab.favorites')}</Button>
+            <Button variant={tab === 3 ? 'contained' : 'text'} color={tab === 3 ? 'secondary' : 'primary'} onClick={() => setTab(3)} sx={{ fontWeight: 600, px: 1.5 }}>{t('userDashboard.tab.learning')}</Button>
+            <Button variant={tab === 4 ? 'contained' : 'text'} color={tab === 4 ? 'secondary' : 'primary'} onClick={() => setTab(4)} sx={{ fontWeight: 600, px: 1.5 }}>{t('userDashboard.tab.profile')}</Button>
           </Stack>
         </Box>
       </Box>
@@ -173,7 +175,7 @@ function UserDashboard() {
 
       {/* Quick Actions placed immediately under the intro line as requested */}
       <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', mt: 1 }}>
-        <Typography variant="body1" sx={{ fontSize: '1.5rem', textAlign: 'center', width: '100%', maxWidth: 900 }}>Discover Soul Of India !</Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.5rem', textAlign: 'center', width: '100%', maxWidth: 900 }}>{t('userDashboard.tagline')}</Typography>
       </Box>
      
   <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', mt: 3, mb: 2 }}>
@@ -198,9 +200,9 @@ function UserDashboard() {
                 boxShadow: '0 6px 25px rgba(255, 107, 107, 0.5)',
               }
             }}
-          >
-             Explore Culture
-          </Button>
+           >
+             {t('userDashboard.button.exploreCulture')}
+           </Button>
           <Button
             component={Link}
             to="/heritage"
@@ -221,9 +223,9 @@ function UserDashboard() {
                 boxShadow: '0 6px 25px rgba(255, 107, 107, 0.5)',
               }
             }}
-          >
-             Visit Heritage Sites
-          </Button>
+           >
+             {t('userDashboard.button.visitHeritage')}
+           </Button>
           <Button
             component={Link}
             to="/monuments"
@@ -244,9 +246,9 @@ function UserDashboard() {
                 boxShadow: '0 6px 25px rgba(171,193,238,0.5)',
               }
             }}
-          >
-             Discover Monuments
-          </Button>
+           >
+             {t('userDashboard.button.discoverMonuments')}
+           </Button>
         </Stack>
       </Box>
       {showCultureInline && (
@@ -257,7 +259,7 @@ function UserDashboard() {
 
       {tab === 0 && (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', mt: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>Your Heritage Journey</Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('userDashboard.heading.yourHeritageJourney')}</Typography>
           <Grid container spacing={2} sx={{ maxWidth: '800px', justifyContent: 'center' }}>
             {userProgress.map((item, idx) => (
               <Grid item xs={12} md={4} key={idx}>
@@ -270,7 +272,7 @@ function UserDashboard() {
           </Grid>
           {sharedContents && sharedContents.length > 0 && (
             <Box sx={{ mt: 4, width: '100%', maxWidth: 900 }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>Latest from Content Creators</Typography>
+              <Typography variant="h6" sx={{ mb: 2 }}>{t('userDashboard.latestContentCreators')}</Typography>
                 <Grid container spacing={2} sx={{ maxWidth: '800px', justifyContent: 'center', mx: 'auto' }}>
                   {sharedContents.map((c, i) => (
                     <Grid item xs={12} md={4} key={c.id || i}>
@@ -291,11 +293,11 @@ function UserDashboard() {
       )}
       {tab === 1 && (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>My Heritage Journey</Typography>
-          <Typography variant="body1" sx={{ mb: 3, maxWidth: '600px' }}>Track your visits, experiences, and cultural discoveries here.</Typography>
-          <Typography variant="subtitle1" sx={{ mb: 1 }}>Sites Visited:</Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('userDashboard.myHeritageJourney')}</Typography>
+          <Typography variant="body1" sx={{ mb: 3, maxWidth: '600px' }}>{t('userDashboard.trackVisits')}</Typography>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>{t('userDashboard.sitesVisited')}</Typography>
           {visitedSites.length === 0 ? (
-            <Typography variant="body2" sx={{ mb: 2 }}>No sites visited yet.</Typography>
+            <Typography variant="body2" sx={{ mb: 2 }}>{t('userDashboard.noSitesVisited')}</Typography>
           ) : (
             <ul style={{ listStyle: 'none', padding: 0, marginBottom: 16 }}>
               {visitedSites.map(site => (
@@ -305,17 +307,17 @@ function UserDashboard() {
               ))}
             </ul>
           )}
-          <Button variant="contained" sx={{ mt: 2 }} onClick={() => setShowSitesDialog(true)}>Add New Visit</Button>
-          <Button variant="outlined" sx={{ mt: 2, ml: 2 }} onClick={() => setShowNewListDialog(true)}>Add New List</Button>
+          <Button variant="contained" sx={{ mt: 2 }} onClick={() => setShowSitesDialog(true)}>{t('userDashboard.button.addNewVisit')}</Button>
+          <Button variant="outlined" sx={{ mt: 2, ml: 2 }} onClick={() => setShowNewListDialog(true)}>{t('userDashboard.button.addNewList')}</Button>
           
           {/* New List Dialog */}
           <Dialog open={showNewListDialog} onClose={() => setShowNewListDialog(false)} maxWidth="sm" fullWidth>
-            <DialogTitle>Create a New Journey List</DialogTitle>
+            <DialogTitle>{t('userDashboard.dialog.createNewList.title')}</DialogTitle>
             <DialogContent>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <input value={newListName} onChange={e => setNewListName(e.target.value)} placeholder="List name (e.g. South India Tour)" style={{ padding: '8px 10px', fontSize: '1rem', borderRadius: 6, border: '1px solid #ddd' }} />
+                <input value={newListName} onChange={e => setNewListName(e.target.value)} placeholder={t('userDashboard.dialog.createNewList.placeholderListName')} style={{ padding: '8px 10px', fontSize: '1rem', borderRadius: 6, border: '1px solid #ddd' }} />
 
-                <Typography variant="subtitle2">Select Monuments</Typography>
+                <Typography variant="subtitle2">{t('userDashboard.dialog.selectMonuments')}</Typography>
                 <Box sx={{ maxHeight: 220, overflow: 'auto', border: '1px solid #eee', p: 1, borderRadius: 2 }}>
                   {monumentData.map(site => (
                     <Box key={site.id} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
@@ -328,7 +330,7 @@ function UserDashboard() {
                   ))}
                 </Box>
 
-                <Typography variant="subtitle2">Add Custom Places</Typography>
+                <Typography variant="subtitle2">{t('userDashboard.dialog.addCustomPlaces')}</Typography>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <input value={newCustomPlace} onChange={e => setNewCustomPlace(e.target.value)} placeholder="Place name" style={{ flex: 1, padding: '8px 10px', borderRadius: 6, border: '1px solid #ddd' }} />
                   <Button variant="contained" onClick={() => {
@@ -336,7 +338,7 @@ function UserDashboard() {
                       setNewListCustomPlaces(prev => [...prev, { id: `c-${Date.now()}`, name: newCustomPlace.trim() }]);
                       setNewCustomPlace('');
                     }
-                  }}>Add</Button>
+                  }}>{t('userDashboard.dialog.addButton')}</Button>
                 </Box>
                 <Box>
                   {newListCustomPlaces.map(p => (
@@ -346,16 +348,16 @@ function UserDashboard() {
               </Box>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => setShowNewListDialog(false)}>Cancel</Button>
+              <Button onClick={() => setShowNewListDialog(false)}>{t('userDashboard.close')}</Button>
               <Button onClick={() => {
-                if (!newListName.trim()) return alert('Please enter a list name');
+                if (!newListName.trim()) return alert(t('userDashboard.alert.enterListName'));
                 const newList = { id: `list-${Date.now()}`, name: newListName.trim(), monuments: newListSelected, customPlaces: newListCustomPlaces };
                 const updated = [...journeyLists, newList];
                 setJourneyLists(updated);
                 localStorage.setItem('journeyLists', JSON.stringify(updated));
                 setNewListName(''); setNewListSelected([]); setNewListCustomPlaces([]);
                 setShowNewListDialog(false);
-              }} variant="contained">Save List</Button>
+              }} variant="contained">{t('userDashboard.button.saveList')}</Button>
             </DialogActions>
           </Dialog>
 
@@ -394,7 +396,7 @@ function UserDashboard() {
             </Box>
           )}
           <Dialog open={showSitesDialog} onClose={() => setShowSitesDialog(false)} maxWidth="sm" fullWidth>
-            <DialogTitle>Select a Site to Add</DialogTitle>
+            <DialogTitle>{t('userDashboard.dialog.selectSite.title')}</DialogTitle>
             <DialogContent>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {monumentData.filter(site => !visitedSites.some(v => v.id === site.id)).map(site => (
@@ -415,22 +417,22 @@ function UserDashboard() {
                   </li>
                 ))}
                 {monumentData.filter(site => !visitedSites.some(v => v.id === site.id)).length === 0 && (
-                  <Typography variant="body2" sx={{ mt: 2 }}>All sites have been added to your journey!</Typography>
+                  <Typography variant="body2" sx={{ mt: 2 }}>{t('userDashboard.allSitesAdded')}</Typography>
                 )}
               </ul>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => setShowSitesDialog(false)}>Close</Button>
+              <Button onClick={() => setShowSitesDialog(false)}>{t('userDashboard.close')}</Button>
             </DialogActions>
           </Dialog>
         </Box>
       )}
       {tab === 2 && (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>My Favorites</Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('userDashboard.favorites.title')}</Typography>
           <Grid container spacing={2} sx={{ maxWidth: '800px', justifyContent: 'center' }}>
             {favorites.length === 0 ? (
-              <Typography variant="body2">No favorites yet. Add favorites from item details.</Typography>
+              <Typography variant="body2">{t('userDashboard.favorites.noFavorites')}</Typography>
             ) : favorites.map((item, idx) => (
               <Grid item xs={12} md={4} key={idx}>
                 <Card>
@@ -442,7 +444,7 @@ function UserDashboard() {
                       size="small" 
                       sx={{ mt: 1, mr: 1 }} 
                     />
-                    <Button variant="text" size="small" onClick={() => removeFavorite(item)} sx={{ mt: 1 }}>Remove</Button>
+                    <Button variant="text" size="small" onClick={() => removeFavorite(item)} sx={{ mt: 1 }}>{t('userDashboard.favorites.remove')}</Button>
                   </CardContent>
                 </Card>
               </Grid>
@@ -453,8 +455,8 @@ function UserDashboard() {
       {/* Recommendations tab removed */}
       {tab === 3 && (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>Learning Center</Typography>
-          <Typography variant="body1" sx={{ mb: 3, maxWidth: '600px' }}>Access educational content, quizzes, and interactive modules about Indian heritage. Choose a category to start a 10-question quiz.</Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>{t('userDashboard.learning.title')}</Typography>
+          <Typography variant="body1" sx={{ mb: 3, maxWidth: '600px' }}>{t('userDashboard.learning.description')}</Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 2, flexWrap: 'wrap' }}>
             {Object.keys(quizzes).map(cat => (
               <Button
@@ -465,7 +467,7 @@ function UserDashboard() {
               >{cat}</Button>
             ))}
           </Box>
-          <Typography variant="body2" sx={{ mb: 1 }}>Quiz Attempts: {quizAttempts} | Last Score: {quizScore}/{quizQuestions.length || 10}</Typography>
+          <Typography variant="body2" sx={{ mb: 1 }}>{t('userDashboard.learning.quizAttempts', { attempts: quizAttempts, score: quizScore, total: quizQuestions.length || 10 })}</Typography>
           <Button
             variant="contained"
             sx={{ mt: 2 }}
@@ -480,9 +482,9 @@ function UserDashboard() {
               setQuizAnswers([]);
               setQuizFinished(false);
             }}
-          >Start Quiz</Button>
+          >{t('userDashboard.learning.startQuiz')}</Button>
           <Dialog open={quizOpen} onClose={() => setQuizOpen(false)} maxWidth="sm" fullWidth>
-            <DialogTitle>Heritage Quiz</DialogTitle>
+            <DialogTitle>{t('userDashboard.quiz.title')}</DialogTitle>
             <DialogContent>
               {!quizFinished && quizQuestions.length > 0 ? (
                 <>
@@ -502,22 +504,22 @@ function UserDashboard() {
                 </>
               ) : quizFinished ? (
                 <Box sx={{ textAlign: 'center', py: 2 }}>
-                  <Typography variant="h6">Quiz Complete!</Typography>
-                  <Typography variant="body1" sx={{ mt: 1 }}>Your Score: {quizScore} / {quizQuestions.length}</Typography>
-                  <Typography variant="body2" sx={{ mt: 1 }}>Attempts: {quizAttempts}</Typography>
+                  <Typography variant="h6">{t('userDashboard.quiz.complete')}</Typography>
+                  <Typography variant="body1" sx={{ mt: 1 }}>{t('userDashboard.quiz.yourScore', { score: quizScore, total: quizQuestions.length })}</Typography>
+                  <Typography variant="body2" sx={{ mt: 1 }}>{t('userDashboard.quiz.attempts', { attempts: quizAttempts })}</Typography>
                 </Box>
               ) : null}
             </DialogContent>
             <DialogActions>
               {!quizFinished && quizStep > 0 && (
-                <Button onClick={() => setQuizStep(quizStep - 1)}>Back</Button>
+                <Button onClick={() => setQuizStep(quizStep - 1)}>{t('userDashboard.quiz.back')}</Button>
               )}
               {!quizFinished && quizQuestions.length > 0 && quizStep < quizQuestions.length - 1 && (
                 <Button
                   onClick={() => setQuizStep(quizStep + 1)}
                   disabled={!quizAnswers[quizStep]}
                 >
-                  Next
+                  {t('userDashboard.quiz.next')}
                 </Button>
               )}
               {!quizFinished && quizQuestions.length > 0 && quizStep === quizQuestions.length - 1 && (
@@ -535,10 +537,10 @@ function UserDashboard() {
                   }}
                   disabled={!quizAnswers[quizStep]}
                 >
-                  Finish
+                  {t('userDashboard.quiz.finish')}
                 </Button>
               )}
-              <Button onClick={() => setQuizOpen(false)}>Close</Button>
+              <Button onClick={() => setQuizOpen(false)}>{t('userDashboard.close')}</Button>
             </DialogActions>
           </Dialog>
         </Box>
@@ -561,6 +563,7 @@ export default UserDashboard;
 
 // --- UserProfileSection component ---
 function UserProfileSection() {
+  const { t } = useTranslation();
   const [editMode, setEditMode] = useState(false);
   const [profile, setProfile] = useState({
     userId: 'U12345',
@@ -612,17 +615,17 @@ function UserProfileSection() {
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 140 }}>
             <Avatar src={profile.profilePicture} sx={{ width: 120, height: 120, mb: 1, cursor: 'pointer' }} onClick={() => avatarRef.current && avatarRef.current.click()} />
             <input ref={avatarRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleAvatar} />
-            <Button variant="outlined" size="small" onClick={() => avatarRef.current && avatarRef.current.click()}>Choose picture</Button>
+            <Button variant="outlined" size="small" onClick={() => avatarRef.current && avatarRef.current.click()}>{t('userProfile.choosePicture')}</Button>
           </Box>
           <Box sx={{ flex: 1 }}>
-            <input value={profile.fullName} onChange={e => setProfile(p => ({ ...p, fullName: e.target.value }))} placeholder="Full name" style={{ width: '100%', marginBottom: 8, padding: 6 }} />
-            <input value={profile.email} onChange={e => setProfile(p => ({ ...p, email: e.target.value }))} placeholder="Email" style={{ width: '100%', marginBottom: 8, padding: 6 }} />
-            <input value={profile.location} onChange={e => setProfile(p => ({ ...p, location: e.target.value }))} placeholder="Location" style={{ width: '100%', marginBottom: 8, padding: 6 }} />
-            <input value={profile.languagePreference} onChange={e => setProfile(p => ({ ...p, languagePreference: e.target.value }))} placeholder="Language" style={{ width: '100%', marginBottom: 8, padding: 6 }} />
-            <textarea value={profile.bio} onChange={e => setProfile(p => ({ ...p, bio: e.target.value }))} placeholder="Bio" rows={3} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
+            <input value={profile.fullName} onChange={e => setProfile(p => ({ ...p, fullName: e.target.value }))} placeholder={t('userProfile.placeholder.fullName')} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
+            <input value={profile.email} onChange={e => setProfile(p => ({ ...p, email: e.target.value }))} placeholder={t('userProfile.placeholder.email')} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
+            <input value={profile.location} onChange={e => setProfile(p => ({ ...p, location: e.target.value }))} placeholder={t('userProfile.placeholder.location')} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
+            <input value={profile.languagePreference} onChange={e => setProfile(p => ({ ...p, languagePreference: e.target.value }))} placeholder={t('userProfile.placeholder.language')} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
+            <textarea value={profile.bio} onChange={e => setProfile(p => ({ ...p, bio: e.target.value }))} placeholder={t('userProfile.placeholder.bio')} rows={3} style={{ width: '100%', marginBottom: 8, padding: 6 }} />
             <Box>
-              <Button variant="contained" size="small" onClick={saveProfile} sx={{ mr: 1 }}>Save</Button>
-              <Button variant="outlined" size="small" onClick={() => setEditMode(false)}>Cancel</Button>
+              <Button variant="contained" size="small" onClick={saveProfile} sx={{ mr: 1 }}>{t('userProfile.button.save')}</Button>
+              <Button variant="outlined" size="small" onClick={() => setEditMode(false)}>{t('userProfile.button.cancel')}</Button>
             </Box>
           </Box>
         </Box>
@@ -635,9 +638,9 @@ function UserProfileSection() {
             <Typography variant="body2" sx={{ mb: 1 }}>@{profile.username}</Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>{profile.email}</Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>{profile.location}</Typography>
-            <Typography variant="body2" sx={{ mb: 1 }}>Language: {profile.languagePreference}</Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>{t('userProfile.languageLabel')}: {profile.languagePreference}</Typography>
             <Typography variant="body2" sx={{ mb: 2 }}>{profile.bio}</Typography>
-            <Button variant="outlined" size="small" onClick={() => setEditMode(true)}>Edit</Button>
+            <Button variant="outlined" size="small" onClick={() => setEditMode(true)}>{t('userProfile.button.edit')}</Button>
           </Box>
         </Box>
       )}

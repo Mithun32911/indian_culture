@@ -6,6 +6,7 @@ import ArticlePreview from './ArticlePreview';
 import './Admin.css';
 import './ContentCreatorDashboard.css';
 import { monumentData } from '../database/data';
+import { useTranslation } from 'react-i18next';
 
 
 // Default projects used for initial stats and initial content
@@ -80,6 +81,24 @@ const contentIdeas = [
 ];
 
 function ContentCreatorDashboard() {
+  const { t } = useTranslation();
+  // Helpers to translate content types and statuses coming from data
+  const translateType = (type) => {
+    const map = {
+      'Article': 'contentCreatorDashboard.createCard.article.title',
+      'Video': 'contentCreatorDashboard.createCard.video.title',
+      'Photography': 'contentCreatorDashboard.createCard.gallery.title'
+    };
+    return map[type] ? t(map[type]) : (t(type) !== type ? t(type) : type);
+  };
+
+  const translateStatus = (status) => {
+    const map = {
+      'Published': 'contentCreatorDashboard.status.published',
+      'Draft': 'contentCreatorDashboard.status.draft'
+    };
+    return map[status] ? t(map[status]) : status;
+  };
   const [deleteIdx, setDeleteIdx] = useState(null);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [tab, setTab] = useState(0);
@@ -152,7 +171,7 @@ function ContentCreatorDashboard() {
 
   const _handleSaveContent = () => {
     if (!newContent.title.trim()) {
-      _setCreateError('Title is required.');
+      _setCreateError(t('contentCreatorDashboard.errors.title_required'));
       return;
     }
     setProjects(prev => [
@@ -204,8 +223,8 @@ function ContentCreatorDashboard() {
     >
       {/* Navbar (moved below header so it appears under the studio title) */}
   <Box className="dashboard-header" sx={{ mb: 0, textAlign: 'center' }}>
-        <Typography variant="h4" className="dashboard-title">Content Creator Studio 🎨</Typography>
-        <Typography variant="body1" className="dashboard-subtitle">Create and share amazing heritage content</Typography>
+        <Typography variant="h4" className="dashboard-title">{t('contentCreatorDashboard.title')}</Typography>
+        <Typography variant="body1" className="dashboard-subtitle">{t('contentCreatorDashboard.subtitle')}</Typography>
       </Box>
   <nav className="dashboard-navbar">
     <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
@@ -214,37 +233,37 @@ function ContentCreatorDashboard() {
             variant={tab === 0 ? "contained" : "text"}
             onClick={() => { setTab(0); navigate('/admin/content-creator-dashboard'); }} 
             sx={{ fontWeight: 600 }}
-          >Dashboard</Button>
+          >{t('contentCreatorDashboard.nav.dashboard')}</Button>
           <Button 
             color={tab === 1 ? "secondary" : "primary"}
             variant={tab === 1 ? "contained" : "text"}
             onClick={() => setTab(1)} 
             sx={{ fontWeight: 600 }}
-          >My Content</Button>
+          >{t('contentCreatorDashboard.nav.my_content')}</Button>
           <Button 
             color={tab === 2 ? "secondary" : "primary"}
             variant={tab === 2 ? "contained" : "text"}
             onClick={() => setTab(2)} 
             sx={{ fontWeight: 600 }}
-          >Create New</Button>
+          >{t('contentCreatorDashboard.nav.create_new')}</Button>
           <Button 
             color={tab === 3 ? "secondary" : "primary"}
             variant={tab === 3 ? "contained" : "text"}
             onClick={() => setTab(3)} 
             sx={{ fontWeight: 600 }}
-          >Analytics</Button>
+          >{t('contentCreatorDashboard.nav.analytics')}</Button>
           <Button 
             color={tab === 4 ? "secondary" : "primary"}
             variant={tab === 4 ? "contained" : "text"}
             onClick={() => setTab(4)} 
             sx={{ fontWeight: 600 }}
-          >Resources</Button>
+          >{t('contentCreatorDashboard.nav.resources')}</Button>
           <Button 
             color={tab === 5 ? "secondary" : "primary"}
             variant={tab === 5 ? "contained" : "text"}
             onClick={() => setTab(5)} 
             sx={{ fontWeight: 600 }}
-          >Settings</Button>
+          >{t('contentCreatorDashboard.nav.settings')}</Button>
         </div>
         <div className="nav-logout">
           <Button
@@ -257,7 +276,7 @@ function ContentCreatorDashboard() {
             }}
             onClick={() => navigate('/')}
           >
-            Logout
+            {t('contentCreatorDashboard.logout')}
           </Button>
         </div>
       </nav>
@@ -265,22 +284,22 @@ function ContentCreatorDashboard() {
   <Box className="dashboard-content">
         {tab === 0 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>Content Overview</Typography>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.content_overview')}</Typography>
             <Grid container spacing={3} className="dashboard-stats">
-              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.articles}</Typography><Typography variant="body2">Articles Published</Typography></Card></Grid>
-              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.videos}</Typography><Typography variant="body2">Videos Created</Typography></Card></Grid>
-              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.galleries}</Typography><Typography variant="body2">Galleries Created</Typography></Card></Grid>
-              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.views}</Typography><Typography variant="body2">Total Views</Typography></Card></Grid>
+              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.articles}</Typography><Typography variant="body2">{t('contentCreatorDashboard.stats.articles_published')}</Typography></Card></Grid>
+              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.videos}</Typography><Typography variant="body2">{t('contentCreatorDashboard.stats.videos_created')}</Typography></Card></Grid>
+              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.galleries}</Typography><Typography variant="body2">{t('contentCreatorDashboard.stats.galleries_created')}</Typography></Card></Grid>
+              <Grid item xs={12} md={3}><Card className="stat-card"><Typography variant="h4" color="primary">{stats.views}</Typography><Typography variant="body2">{t('contentCreatorDashboard.stats.total_views')}</Typography></Card></Grid>
             </Grid>
-            <Typography variant="h6" sx={{ mt: 3, mb: 2, textAlign: 'center' }}>Recent Projects</Typography>
+            <Typography variant="h6" sx={{ mt: 3, mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.recent_projects')}</Typography>
             <Grid container spacing={2}>
               {projects.slice(0, 3).map((project, idx) => (
                 <Grid item xs={12} md={4} key={idx}>
                   <Card className="project-card">
                     <CardContent>
                       <Typography variant="h6">{project.title}</Typography>
-                      <Chip label={project.type} color="primary" size="small" sx={{ mt: 1, mr: 1 }} />
-                      <Chip label={project.status} color={project.status === 'Published' ? 'success' : 'warning'} size="small" sx={{ mt: 1 }} />
+                      <Chip label={translateType(project.type)} color="primary" size="small" sx={{ mt: 1, mr: 1 }} />
+                      <Chip label={translateStatus(project.status)} color={project.status === 'Published' ? 'success' : 'warning'} size="small" sx={{ mt: 1 }} />
                     </CardContent>
                   </Card>
                 </Grid>
@@ -290,7 +309,7 @@ function ContentCreatorDashboard() {
         )}
         {tab === 1 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>My Content Library</Typography>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.my_content_library')}</Typography>
             <Grid container spacing={2}>
               {projects.map((project, idx) => (
                 <Grid item xs={12} md={6} key={idx}>
@@ -298,8 +317,8 @@ function ContentCreatorDashboard() {
                     <CardContent>
                       <Typography variant="h6">{project.title}</Typography>
                       <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
-                        <Chip label={project.type} color="primary" size="small" />
-                        <Chip label={project.status} color={project.status === 'Published' ? 'success' : 'warning'} size="small" />
+                        <Chip label={translateType(project.type)} color="primary" size="small" />
+                        <Chip label={translateStatus(project.status)} color={project.status === 'Published' ? 'success' : 'warning'} size="small" />
                       </Stack>
                       <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                         {(project.type === 'Article' || project.type === 'Photography' || project.type === 'Video') && (
@@ -332,28 +351,28 @@ function ContentCreatorDashboard() {
                               }
                             }
                             setPreviewOpen(true);
-                          }}>Preview</Button>
+                            }}>{t('contentCreatorDashboard.actions.preview')}</Button>
                         )}
-                        <Button variant="outlined" size="small" onClick={() => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(project.title), '_blank')}>Share</Button>
+                        <Button variant="outlined" size="small" onClick={() => window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(project.title), '_blank')}>{t('contentCreatorDashboard.actions.share')}</Button>
                         <Button variant="outlined" color="error" size="small" onClick={() => {
                           setDeleteIdx(idx);
                           setShowDeleteDialog(true);
-                        }}>Delete</Button>
+                        }}>{t('contentCreatorDashboard.actions.delete')}</Button>
                       </Stack>
                       {/* Delete Confirmation Dialog */}
             {showDeleteDialog && deleteIdx === idx && (
               <Box sx={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', bgcolor: 'rgba(0,0,0,0.25)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Box sx={{ background: '#fff', p: 4, borderRadius: 2, boxShadow: 4, minWidth: 320, textAlign: 'center' }}>
-                  <Typography variant="h6" sx={{ mb: 2 }}>Are you sure you want to delete "{project.title}"?</Typography>
+                  <Typography variant="h6" sx={{ mb: 2 }}>{t('contentCreatorDashboard.delete_confirm', { title: project.title })}</Typography>
                   <Button variant="contained" color="error" sx={{ mr: 2 }} onClick={() => {
                     setProjects(projects.filter((_, i) => i !== deleteIdx));
                     setShowDeleteDialog(false);
                     setDeleteIdx(null);
-                  }}>Delete</Button>
+                  }}>{t('contentCreatorDashboard.actions.delete')}</Button>
                   <Button variant="outlined" color="primary" onClick={() => {
                     setShowDeleteDialog(false);
                     setDeleteIdx(null);
-                  }}>Cancel</Button>
+                  }}>{t('contentCreatorDashboard.actions.cancel')}</Button>
                 </Box>
               </Box>
             )}
@@ -381,7 +400,7 @@ function ContentCreatorDashboard() {
             {previewOpen && selectedArticle?.type === 'Article' && (
               <>
                 <ArticlePreview article={selectedArticle} />
-                <Button sx={{ mt: 2 }} variant="outlined" color="secondary" onClick={() => setPreviewOpen(false)}>Close Preview</Button>
+                <Button sx={{ mt: 2 }} variant="outlined" color="secondary" onClick={() => setPreviewOpen(false)}>{t('contentCreatorDashboard.actions.close_preview')}</Button>
               </>
             )}
 
@@ -389,10 +408,10 @@ function ContentCreatorDashboard() {
               <>
                 <Box sx={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', bgcolor: 'rgba(0,0,0,0.6)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2 }}>
                   <Box sx={{ width: '100%', maxWidth: 900, maxHeight: '90vh', overflowY: 'auto', background: '#fff', borderRadius: 2, p: 2 }}>
-                    <Typography variant="h6" sx={{ mb: 2 }}>{selectedArticle.title} — Preview</Typography>
+                    <Typography variant="h6" sx={{ mb: 2 }}>{selectedArticle.title} — {t('contentCreatorDashboard.preview.photo')}</Typography>
                     <Grid container spacing={2}>
                       {galleryPreviewImages.length === 0 ? (
-                        <Typography variant="body2">No images available for this gallery.</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.preview.no_images')}</Typography>
                       ) : galleryPreviewImages.map((src, i) => (
                         <Grid item xs={12} sm={6} md={4} key={i}>
                           <Box sx={{ borderRadius: 1, overflow: 'hidden', boxShadow: 2 }}>
@@ -411,7 +430,7 @@ function ContentCreatorDashboard() {
                             setGalleryPreviewImages([]);
                             setPreviewOpen(false);
                             setSelectedArticle(null);
-                          }}>Close Preview</Button>
+                          }}>{t('contentCreatorDashboard.actions.close_preview')}</Button>
                     </Box>
                   </Box>
                 </Box>
@@ -421,13 +440,13 @@ function ContentCreatorDashboard() {
               <>
                 <Box sx={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', bgcolor: 'rgba(0,0,0,0.6)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2 }}>
                   <Box sx={{ width: '100%', maxWidth: 900, maxHeight: '90vh', overflowY: 'auto', background: '#fff', borderRadius: 2, p: 2 }}>
-                    <Typography variant="h6" sx={{ mb: 2 }}>{selectedArticle.title} — Video Preview</Typography>
+                    <Typography variant="h6" sx={{ mb: 2 }}>{selectedArticle.title} — {t('contentCreatorDashboard.preview.video')}</Typography>
                     {videoPreviewUrl ? (
                       <Box sx={{ width: '100%', textAlign: 'center' }}>
                         <video src={videoPreviewUrl} controls style={{ maxWidth: '100%', maxHeight: '60vh' }} />
                       </Box>
                     ) : (
-                      <Typography variant="body2">No video file available for preview.</Typography>
+                      <Typography variant="body2">{t('contentCreatorDashboard.preview.no_video')}</Typography>
                     )}
                     <Box sx={{ textAlign: 'right', mt: 2 }}>
                       <Button variant="outlined" color="secondary" onClick={() => {
@@ -440,7 +459,7 @@ function ContentCreatorDashboard() {
                         setVideoPreviewUrl(null);
                         setPreviewOpen(false);
                         setSelectedArticle(null);
-                      }}>Close Preview</Button>
+                      }}>{t('contentCreatorDashboard.actions.close_preview')}</Button>
                     </Box>
                   </Box>
                 </Box>
@@ -450,41 +469,41 @@ function ContentCreatorDashboard() {
         )}
         {tab === 2 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>Create New Content</Typography>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.create_new_content')}</Typography>
             {/* Only show the selection cards if no form is open */}
             {!editorOpen && !videoUploadOpen && !galleryUploadOpen && (
               <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                   <Card className="create-card" sx={{ textAlign: 'center', p: 3 }}>
                     <Typography variant="h5">📝</Typography>
-                    <Typography variant="h6">Article</Typography>
-                    <Typography variant="body2">Write about heritage sites, traditions, and culture</Typography>
+                    <Typography variant="h6">{t('contentCreatorDashboard.createCard.article.title')}</Typography>
+                    <Typography variant="body2">{t('contentCreatorDashboard.createCard.article.description')}</Typography>
                     <Button variant="contained" sx={{ mt: 2 }} onClick={() => {
                       setSelectedArticle({ type: 'Article', title: '', body: '', images: [], status: 'Draft' });
                       setEditorOpen(true);
-                    }}>Create Article</Button>
+                    }}>{t('contentCreatorDashboard.createCard.article.button')}</Button>
                   </Card>
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Card className="create-card" sx={{ textAlign: 'center', p: 3 }}>
                     <Typography variant="h5">🎥</Typography>
-                    <Typography variant="h6">Video</Typography>
-                    <Typography variant="body2">Create documentaries and visual stories</Typography>
+                    <Typography variant="h6">{t('contentCreatorDashboard.createCard.video.title')}</Typography>
+                    <Typography variant="body2">{t('contentCreatorDashboard.createCard.video.description')}</Typography>
                     <Button variant="contained" sx={{ mt: 2 }} onClick={() => {
                       setNewContent({ type: 'Video', title: '', status: 'Draft', video: null, videoDesc: '' });
                       setVideoUploadOpen(true);
-                    }}>Create Video</Button>
+                    }}>{t('contentCreatorDashboard.createCard.video.button')}</Button>
                   </Card>
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Card className="create-card" sx={{ textAlign: 'center', p: 3 }}>
                     <Typography variant="h5">📸</Typography>
-                    <Typography variant="h6">Photo Gallery</Typography>
-                    <Typography variant="body2">Showcase heritage through photography</Typography>
+                    <Typography variant="h6">{t('contentCreatorDashboard.createCard.gallery.title')}</Typography>
+                    <Typography variant="body2">{t('contentCreatorDashboard.createCard.gallery.description')}</Typography>
                     <Button variant="contained" sx={{ mt: 2 }} onClick={() => {
                       setNewContent({ type: 'Photography', title: '', status: 'Draft', images: [], galleryDesc: '' });
                       setGalleryUploadOpen(true);
-                    }}>Create Gallery</Button>
+                    }}>{t('contentCreatorDashboard.createCard.gallery.button')}</Button>
                   </Card>
                 </Grid>
               </Grid>
@@ -508,11 +527,11 @@ function ContentCreatorDashboard() {
             {/* Video Upload Modal/Page */}
             {videoUploadOpen && (
               <Box className="create-form" sx={{ mt: 4, maxWidth: 400, mx: 'auto', textAlign: 'center', background: '#fff', p: 3, borderRadius: 2, boxShadow: 2 }}>
-                <Typography variant="subtitle1">Upload Video</Typography>
+                <Typography variant="subtitle1">{t('contentCreatorDashboard.upload.video.title')}</Typography>
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Enter Video Title"
+                  placeholder={t('contentCreatorDashboard.upload.video.placeholder_title')}
                   value={newContent.title}
                   onChange={e => setNewContent({ ...newContent, title: e.target.value })}
                   style={{ marginBottom: '10px', width: '100%' }}
@@ -538,7 +557,7 @@ function ContentCreatorDashboard() {
                 )}
                 <textarea
                   className="form-input"
-                  placeholder="Enter Video Description"
+                  placeholder={t('contentCreatorDashboard.upload.video.placeholder_description')}
                   value={newContent.videoDesc}
                   onChange={e => setNewContent({ ...newContent, videoDesc: e.target.value })}
                   style={{ marginBottom: '10px', width: '100%' }}
@@ -557,24 +576,24 @@ function ContentCreatorDashboard() {
                   setModalVideoPreviewUrl(null);
                   setVideoUploadOpen(false);
                   setTab(1);
-                }} sx={{ mt: 1 }}>Save Video</Button>
+                }} sx={{ mt: 1 }}>{t('contentCreatorDashboard.actions.save_video')}</Button>
                 <Button variant="outlined" color="secondary" onClick={() => {
                   // revoke modal preview urls
                   modalCreatedObjectUrls.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) { console.debug(e); } });
                   setModalCreatedObjectUrls([]);
                   setModalVideoPreviewUrl(null);
                   setVideoUploadOpen(false);
-                }} sx={{ mt: 1, ml: 2 }}>Cancel</Button>
+                }} sx={{ mt: 1, ml: 2 }}>{t('contentCreatorDashboard.actions.cancel')}</Button>
               </Box>
             )}
             {/* Photo Gallery Upload Modal/Page */}
             {galleryUploadOpen && (
               <Box className="create-form" sx={{ mt: 4, maxWidth: 400, mx: 'auto', textAlign: 'center', background: '#fff', p: 3, borderRadius: 2, boxShadow: 2 }}>
-                <Typography variant="subtitle1">Upload Photo Gallery</Typography>
+                <Typography variant="subtitle1">{t('contentCreatorDashboard.upload.gallery.title')}</Typography>
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Enter Gallery Title"
+                  placeholder={t('contentCreatorDashboard.upload.gallery.placeholder_title')}
                   value={newContent.title}
                   onChange={e => setNewContent({ ...newContent, title: e.target.value })}
                   style={{ marginBottom: '10px', width: '100%' }}
@@ -615,7 +634,7 @@ function ContentCreatorDashboard() {
                 )}
                 <textarea
                   className="form-input"
-                  placeholder="Enter Gallery Description"
+                  placeholder={t('contentCreatorDashboard.upload.gallery.placeholder_description')}
                   value={newContent.galleryDesc}
                   onChange={e => setNewContent({ ...newContent, galleryDesc: e.target.value })}
                   style={{ marginBottom: '10px', width: '100%' }}
@@ -633,21 +652,21 @@ function ContentCreatorDashboard() {
                   setModalGalleryPreviewImages([]);
                   setGalleryUploadOpen(false);
                   setTab(1);
-                }} sx={{ mt: 1 }}>Save Gallery</Button>
+                }} sx={{ mt: 1 }}>{t('contentCreatorDashboard.actions.save_gallery')}</Button>
                 <Button variant="outlined" color="secondary" onClick={() => {
                   // revoke modal preview urls
                   modalCreatedObjectUrls.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) { console.debug(e); } });
                   setModalCreatedObjectUrls([]);
                   setModalGalleryPreviewImages([]);
                   setGalleryUploadOpen(false);
-                }} sx={{ mt: 1, ml: 2 }}>Cancel</Button>
+                }} sx={{ mt: 1, ml: 2 }}>{t('contentCreatorDashboard.actions.cancel')}</Button>
               </Box>
             )}
           </Box>
         )}
         {tab === 3 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>Content Analytics</Typography>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.content_analytics')}</Typography>
             {/* Derived metrics from projects and stats */}
             {(() => {
               const published = projects.filter(p => p.status === 'Published');
@@ -674,13 +693,13 @@ function ContentCreatorDashboard() {
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Content Performance</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.performance.title')}</Typography>
                         <Typography variant="h4" color="primary">{stats.views.toLocaleString()}</Typography>
-                        <Typography variant="body2">Total Views</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.performance.total_views')}</Typography>
                         <Box sx={{ mt: 2 }}>
-                          <Typography variant="body2">Published Content: <strong>{totalPublished}</strong></Typography>
-                          <Typography variant="body2">Avg views / published: <strong>{avgViewsPerPublished}</strong></Typography>
-                          <Typography variant="body2">Published rate: <strong>{publishedRate}%</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.performance.published_content')}: <strong>{totalPublished}</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.performance.avg_views_per_published')}: <strong>{avgViewsPerPublished}</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.performance.published_rate')}: <strong>{publishedRate}%</strong></Typography>
                         </Box>
                       </CardContent>
                     </Card>
@@ -690,13 +709,13 @@ function ContentCreatorDashboard() {
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">User Engagement</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.engagement.title')}</Typography>
                         <Typography variant="h4" color="secondary">{engagementEstimate}</Typography>
-                        <Typography variant="body2">Estimated engagement score</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.engagement.estimated_score')}</Typography>
                         <Box sx={{ mt: 2 }}>
-                          <Typography variant="body2">Shares / Social: <strong>—</strong></Typography>
-                          <Typography variant="body2">Average time on content: <strong>—</strong></Typography>
-                          <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>Note: engagement uses current views, media counts and content volume to provide a simple estimate. For accurate engagement, connect analytics events.</Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.engagement.shares_social')}: <strong>—</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.engagement.avg_time_on_content')}: <strong>—</strong></Typography>
+                          <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>{t('contentCreatorDashboard.analytics.engagement.note')}</Typography>
                         </Box>
                       </CardContent>
                     </Card>
@@ -706,13 +725,13 @@ function ContentCreatorDashboard() {
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Creator Productivity</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.productivity.title')}</Typography>
                         <Typography variant="h4" color="primary">{projects.length}</Typography>
-                        <Typography variant="body2">Total Projects</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.productivity.total_projects')}</Typography>
                         <Box sx={{ mt: 2 }}>
-                          <Typography variant="body2">Created in last 30 days: <strong>{projectsLast30Days}</strong></Typography>
-                          <Typography variant="body2">Avg / week: <strong>{avgPerWeek}</strong></Typography>
-                          <Typography variant="body2">Drafts: <strong>{draftCount}</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.productivity.created_last_30_days')}: <strong>{projectsLast30Days}</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.productivity.avg_per_week')}: <strong>{avgPerWeek}</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.productivity.drafts')}: <strong>{draftCount}</strong></Typography>
                         </Box>
                       </CardContent>
                     </Card>
@@ -722,13 +741,13 @@ function ContentCreatorDashboard() {
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Cultural Impact</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.cultural.title')}</Typography>
                         <Typography variant="h4" color="secondary">{monumentsMentioned}</Typography>
-                        <Typography variant="body2">Monuments referenced</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.cultural.monuments_referenced')}</Typography>
                         <Box sx={{ mt: 2 }}>
-                          <Typography variant="body2">Monuments coverage: <strong>{monumentCoveragePercent}%</strong></Typography>
-                          <Typography variant="body2">Galleries (images): <strong>{totalImages}</strong> across <strong>{galleries}</strong> galleries</Typography>
-                          <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>Tip: tag your content with monument names and regions to increase discoverability and cultural reach.</Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.cultural.coverage')}: <strong>{monumentCoveragePercent}%</strong></Typography>
+                          <Typography variant="body2">{t('contentCreatorDashboard.analytics.cultural.galleries_images')}: <strong>{totalImages}</strong> {t('contentCreatorDashboard.analytics.cultural.across')} <strong>{galleries}</strong> {t('contentCreatorDashboard.analytics.cultural.galleries')}</Typography>
+                          <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>{t('contentCreatorDashboard.analytics.cultural.tip')}</Typography>
                         </Box>
                       </CardContent>
                     </Card>
@@ -738,36 +757,36 @@ function ContentCreatorDashboard() {
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Videos</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.videos.title')}</Typography>
                         <Typography variant="h4" color="primary">{totalVideos}</Typography>
-                        <Typography variant="body2">Total videos uploaded</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.videos.total_uploaded')}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Images</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.images.title')}</Typography>
                         <Typography variant="h4" color="primary">{totalImages}</Typography>
-                        <Typography variant="body2">Total images across galleries</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.images.total_across_galleries')}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Avg images / gallery</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.avg_images_per_gallery.title')}</Typography>
                         <Typography variant="h4" color="primary">{avgImagesPerGallery}</Typography>
-                        <Typography variant="body2">Average images per gallery</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.avg_images_per_gallery.description')}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Card className="stat-card">
                       <CardContent>
-                        <Typography variant="h6">Content Types</Typography>
+                        <Typography variant="h6">{t('contentCreatorDashboard.analytics.content_types.title')}</Typography>
                         <Typography variant="h4" color="primary">{new Set(projects.map(p=>p.type)).size}</Typography>
-                        <Typography variant="body2">Unique content types used</Typography>
+                        <Typography variant="body2">{t('contentCreatorDashboard.analytics.content_types.description')}</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
@@ -778,8 +797,8 @@ function ContentCreatorDashboard() {
         )}
         {tab === 4 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>Content Ideas & Resources</Typography>
-            <Typography variant="subtitle1" sx={{ mb: 2, textAlign: 'center' }}>Trending Topics</Typography>
+            <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.resources.title')}</Typography>
+            <Typography variant="subtitle1" sx={{ mb: 2, textAlign: 'center' }}>{t('contentCreatorDashboard.resources.trending_topics')}</Typography>
             <Grid container spacing={2}>
               {contentIdeas.map((idea, idx) => (
                 <Grid item xs={12} md={4} key={idx}>
@@ -791,7 +810,7 @@ function ContentCreatorDashboard() {
                         setSelectedIdea(idea);
                         setIdeaModalOpen(true);
                       }}>
-                        View & Use Idea
+                        {t('contentCreatorDashboard.resources.view_use_idea')}
                       </Button>
                     </CardContent>
                   </Card>
@@ -801,19 +820,21 @@ function ContentCreatorDashboard() {
             {/* Idea details modal */}
             {ideaModalOpen && selectedIdea && (
               <Box sx={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', bgcolor: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2 }}>
-                <Box sx={{ width: '100%', maxWidth: 800, background: '#fff', borderRadius: 2, p: 3 }}>
+                  <Box sx={{ width: '100%', maxWidth: 800, background: '#fff', borderRadius: 2, p: 3 }}>
                   <Typography variant="h5" sx={{ mb: 1 }}>{selectedIdea.title}</Typography>
                   <Chip label={selectedIdea.category} color="secondary" size="small" sx={{ mb: 2 }} />
                   <Typography variant="body1" sx={{ mb: 2 }}>{selectedIdea.description}</Typography>
-                  <Typography variant="body2" sx={{ mb: 2 }}>Suggested content type: <strong>{selectedIdea.suggestedType}</strong></Typography>
+                  <Typography variant="body2" sx={{ mb: 2 }}>
+                    {t('contentCreatorDashboard.resources.suggested_type')}: <strong>{selectedIdea.suggestedType}</strong>
+                  </Typography>
                   <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
-                    <Button variant="outlined" onClick={() => { setIdeaModalOpen(false); setSelectedIdea(null); }}>Close</Button>
+                    <Button variant="outlined" onClick={() => { setIdeaModalOpen(false); setSelectedIdea(null); }}>{t('contentCreatorDashboard.actions.close')}</Button>
                     <Button variant="contained" onClick={() => {
                       // Prefill create form and switch to Create tab
                       setNewContent({ type: selectedIdea.suggestedType || 'Article', title: selectedIdea.title, status: 'Draft', images: [], video: null, videoDesc: '', galleryDesc: '' });
                       setIdeaModalOpen(false);
                       setTab(2);
-                    }}>Use This Idea</Button>
+                    }}>{t('contentCreatorDashboard.resources.use_idea')}</Button>
                   </Box>
                 </Box>
               </Box>
@@ -822,9 +843,9 @@ function ContentCreatorDashboard() {
         )}
         {tab === 5 && (
           <Box>
-            <Typography variant="h6" sx={{ mb: 2 }}>Creator Settings</Typography>
-            <Typography variant="body1">Manage your creator profile and content preferences.</Typography>
-            <Button variant="contained" sx={{ mt: 2 }} onClick={() => navigate('/admin/content-creator-dashboard/settings')}>Go to Settings</Button>
+            <Typography variant="h6" sx={{ mb: 2 }}>{t('contentCreatorDashboard.settings.title')}</Typography>
+            <Typography variant="body1">{t('contentCreatorDashboard.settings.description')}</Typography>
+            <Button variant="contained" sx={{ mt: 2 }} onClick={() => navigate('/admin/content-creator-dashboard/settings')}>{t('contentCreatorDashboard.settings.go_to_settings')}</Button>
           </Box>
         )}
       </Box>

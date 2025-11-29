@@ -1,0 +1,1719 @@
+{
+  "site": { "title": "భారతీయ వారసత్వం" },
+  "nav": {
+    "home": "హోమ్",
+    "about": "మా గురించి",
+    "contact": "సంప్రదించండి",
+    "selectRole": "పాత్రని ఎంచుకోండి",
+    "login": "లాగిన్",
+    "back": "తిరిగి"
+  },
+  "footer": { "copy": "© 2025 భా రతీయ వారసత్వం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి." },
+  "home": {
+    "hero_title": "గతాన్ని కనుగొనండి, సంస్కృతిని ఆప్యాయంగా అంగీకరించండి",
+    "hero_subtitle": "భారతదేశపు సంప్రదాయాలు, పండుగలు మరియు వారసత్వ స్థలాలను అన్వేషించండి.",
+    "cta_title": "మీ సంస్కృతి ప్రయాణాన్ని ప్రారంభించండి",
+    "cta_sub": "భారత సంపదను పరిరక్షించడంలో భాగస్వామ్యం అవ్వండి"
+  },
+  "about": { "title": "మా గురించి", "description": "భారతీయ సాంస్కృతిక వారసత్వాన్ని పరిరక్షించడానికి మరియు పంచుకోవడానికి ప్రయత్నిస్తున్నాము." },
+  "contact": { "title": "సంప్రదించండి", "lead": "మీ సందేశాన్ని పంపండి", "send_button": "పంపండి" },
+  "culturePage": { "title": "సాంస్కృతిక సంప్రదాయాలు", "search_placeholder": "సంప్రదాయాలను అన్వేషించండి...", "no_results": "ఫలితాలు లేవు", "explore": "అన్వేషించండి", "types": { "festival": "పండుగ", "tradition": "సంప్రదాయం", "art_form": "కళా రూపం", "other": "ఇతర" } },
+  "auth": { "login": "లాగిన్", "logout": "లాగ్ అవుట్", "login_success": "లాగిన్ విజయవంతం!" },
+  "adminLogin": { "login": "అడ్మిన్ లాగిన్", "register": "నమోదు" }
+
+  "nav": {
+    "home": "హోమ్",
+    "about": "మా గురించి",
+    "contact": "సంప్రదించండి",
+    "selectRole": "పాత్రని ఎంచుకోండి",
+    "login": "లాగిన్",
+    "back": "తిరిగి"
+  },
+  "footer": { "copy": "© 2025 భారతీయ వారసత్వం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి." },
+  "home": {
+    "hero_title": "గతాన్ని కనుగొనండి, సంస్కృతిని ఆప్యాయంగా అంగీకరించండి",
+    "hero_subtitle": "భారతదేశపు సంప్రదాయాలు, పండుగలు మరియు వారసత్వ స్థలాలను అన్వేషించండి.",
+    "cta_title": "మీ సంస్కృతి ప్రయాణాన్ని ప్రారంభించండి",
+    "cta_sub": "భారత సంపదను పరిరక్షించడంలో భాగస్వామ్యం అవ్వండి"
+  },
+  "about": {
+    "title": "మా గురించి",
+    "description": "మేము భారతీయ సాంస్కృతిక వారసత్వాన్ని సంరక్షించడానికి, పబ్లిష్ చేయడానికి మరియు పంచుకోవడానికి కృషి చేస్తున్నాము."
+  },
+  "contact": { "title": "సంప్రదించండి", "lead": "మీ అభిప్రాయాలను పంపండి", "send_button": "పంపండి" },
+  "culturePage": {
+    "title": "సాంస్కృతిక సంప్రదాయాలు",
+    "search_placeholder": "సంప్రదాయాలను అన్వేషించండి...",
+    "no_results": "ఫలితాలు లేవు",
+    "explore": "అన్వేషించండి",
+    "types": { "festival": "పండుగ", "tradition": "సంప్రదాయం", "art_form": "కళా రూపం", "other": "ఇతర" }
+  },
+  "auth": { "login": "లాగిన్", "logout": "లాగ్ అవుట్", "login_success": "లాగిన్ విజయవంతం!" },
+  "adminLogin": { "login": "అడ్మిన్ లాగిన్", "register": "నమోదు" }
+}
+  "site": {
+    "title": "భారతీయ వారసత్వం"
+  },
+  "nav": {
+    "home": "హోమ్",
+    "about": "మా గురించి",
+    "contact": "సంప్రదించండి",
+    "selectRole": "పాత్రని ఎంచుకోండి",
+    "login": "లాగిన్",
+    "back": "తిరిగి"
+  },
+  "footer": {
+    "copy": "© 2025 భారతీయ వారసత్వం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి."
+  },
+  "home": {
+    "hero_title": "గతాన్ని కనుగొనండి, సంస్కృతిని ఆప్యాయంగా అంగీకరించండి",
+    "hero_subtitle": "భారతదేశపు సంస్కృతి, పండుగలు, స్మారకాలు మరియు వారసత్వ స్థలాలను అన్వేషించండి.",
+    "cta_title": "మీ సంస్కృతి ప్రయాణాన్ని ప్రారంభించండి",
+    "cta_sub": "భారత సంపదను పరిరక్షించడంలో భాగస్వామ్యం అవ్వండి",
+    "about_cta": "మా లక్ష్యం"
+  },
+  "about": {
+    "title": "మా గురించి",
+    "description": "మేము భారతీయ సాంస్కృతిక వారసత్వాన్ని సంరక్షించడానికి, పబ్లిష్ చేయడానికి మరియు పంచుకోవడానికి కృషి చేస్తున్నాము."
+  },
+  "contact": {
+    "title": "సంప్రదించండి",
+    "lead": "మీ ప్రశ్నలు, అభిప్రాయాలు లేదా సూచనలు పంపండి",
+    "send_button": "ఏదైనా పంపండి"
+  },
+  "culturePage": {
+    "title": "సాంస్కృతిక సంప్రదాయాలు",
+    "search_placeholder": "సంప్రదాయాలను అన్వేషించండి...",
+    "no_results": "ఫలితాలు లేవు",
+    "explore": "అన్వేషించండి",
+    "types": {
+      "festival": "పండుగ",
+      "tradition": "సంప్రదాయం",
+      "art_form": "కళా రూపం",
+      "other": "ఇతర"
+    }
+  },
+  "auth": {
+    "login": "లాగిన్",
+    "logout": "లాగ్ అవుట్",
+    "login_success": "లాగిన్ విజయవంతం!"
+  },
+  "adminLogin": {
+    "login": "అడ్మిన్ లాగిన్",
+    "register": "నమోదు"
+  }
+
+  "nav": {
+    "home": "హోమ్",
+    "about": "మా గురించి",
+    "contact": "సంప్రదించండి",
+    "selectRole": "పాత్రని ఎంచుకోండి",
+    "login": "లాగిన్",
+    "back": "తిరిగి"
+  },
+  "footer": {
+    "copy": "© 2025 భారతీయ వారసత్వం. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి."
+  },
+  "home": {
+    "hero_title": "గతాన్ని కనుగొనండి, సంస్కృతిని ఆప్యాయంగా అంగీకరించండి, భారతాన్ని సెలబ్రేట్ చేయండి.",
+    "hero_subtitle": "భారతదేశంలోని గొప్ప సంప్రదాయాలు, పండుగలు, స్మారకాలు మరియు వారసత్వ స్థలాలను అన్వేషించండి — ఇవి అద్భుతమైన వైవిధ్యాన్ని మరియు కాలేబద్ధ అందాన్ని ప్రతిబింబిస్తాయి.",
+    "cta_title": "మీ సంస్కృతి ప్రయాణాన్ని మొదలుపెట్టండి",
+    "cta_sub": "భారతదేశపు అద్భుతమైన వారసత్వం గురించి తెలుసుకోండి మరియు భవిష్యత్ తరాలకు దాన్ని సంరక్షించడానికి భాగం అయ్యండి.",
+    "about_cta": "మన మిషన్ గురించి"
+  },
+  "aboutPage": {
+    "aboutTitle": "మా మిషన్ గురించి",
+    "aboutLead": "భవిష్యత్ తరాలకు భారతదేశపు అద్భుతమైన సాంస్కృతిక వారసత్వాన్ని సంరక్షించడం మరియు ప్రోత్సహించడం",
+    "purposeTitle": "మా లక్ష్యం",
+    "purposeDesc1": "ఇండియన్ కల్చర్ & హెరిటేజ్ అవేర్‌నెస్ వెబ్‌సైట్ భారతదేశపు సాంస్కృతిక సంప్రదాయాలు, పండుగలు, స్మారకాలు మరియు వారసత్వ స్థలాలను ప్రదర్శించడానికి అంకితం చేయబడింది. మా లక్ష్యం భారతదేశపు అద్భుతమైన వైవిధ్యాన్ని విద్య, ప్రేరణ మరియు సంరక్షణ చేయడం.",
+    "purposeDesc2": "ఈ ప్లాట్‌ఫారమ్ ద్వారా, మేము పురాతన జ్ఞానం మరియు ఆధునిక ప్రాప్యత మధ్య ఉన్న అంతరాన్ని తగ్గించడానికి, భారతదేశపు సాంస్కృతిక సంపదను ప్రపంచవ్యాప్తంగా ప్రజలకు అందుబాటులోకి తేవడాన్ని లక్ష్యంగా పెట్టుకున్నాము.",
+    "valuesTitle": "మేము నిలబడే విలువలు",
+    "education": "విద్య",
+    "educationDesc": "భారతదేశపు వైవిధ్యమైన సాంస్కృతిక దృశ్యాన్ని అర్థం చేసుకోవడానికి మరియు అభినందించడానికి జ్ఞానం శక్తిలో మేము నమ్మకం కలిగి ఉన్నాము.",
+    "preservation": "సంరక్షణ",
+    "preservationDesc": "భవిష్యత్ తరాలకు సాంస్కృతిక సంప్రదాయాలు, స్మారకాలు మరియు వారసత్వ స్థలాలను రక్షించడం మరియు డాక్యుమెంటేషన్ చేయడం.",
+    "unity": "వైవిధ్యంలో ఐక్యత",
+    "unityDesc": "భారతదేశపు అందమైన వైవిధ్యాన్ని జరుపుకోవడం మరియు మనందరినీ కలిపే సామాన్యమైన అంశాలను హైలైట్ చేయడం.",
+    "globalReach": "ప్రపంచవ్యాప్త చేరిక",
+    {
+      "site": {
+        "title": "Indian Heritage"
+      },
+      "nav": {
+        {
+          "site": {
+            "title": "Indian Heritage"
+          },
+          {
+            "site": {
+              "title": "Indian Heritage"
+            },
+            "nav": {
+              "home": "Home",
+              "about": "About",
+              "contact": "Contact",
+              "selectRole": "Select Role",
+              "login": "Login",
+              "back": "Back"
+            },
+            "footer": {
+              "copy": "© 2025 Indian Heritage. All rights reserved."
+            },
+            "home": {
+              "hero_title": "Discover the Past, Embrace the Culture, Celebrate India.",
+              "hero_subtitle": "Explore the magnificent traditions, festivals, monuments, and heritage sites that make India a land of incredible diversity and timeless beauty.",
+              "cta_title": "Start Your Cultural Journey",
+              "cta_sub": "Learn about India's incredible heritage and be part of preserving it for future generations.",
+              "about_cta": "About Our Mission"
+            },
+            "about": {
+              "title": "About",
+              "description": "We are dedicated to preserving and sharing India's cultural heritage through articles, guided tours, and community engagement."
+            },
+            "aboutPage": {
+              "aboutTitle": "About Our Mission",
+              "aboutLead": "Preserving and promoting India's incredible cultural heritage for future generations",
+              "purposeTitle": "Our Purpose",
+              "purposeDesc1": "The Indian Culture & Heritage Awareness Website is dedicated to showcasing the rich tapestry of India's cultural traditions, festivals, monuments, and heritage sites. Our mission is to educate, inspire, and preserve the incredible diversity that makes India truly unique.",
+              "purposeDesc2": "Through this platform, we aim to bridge the gap between ancient wisdom and modern accessibility, making India's cultural wealth available to people around the world.",
+              "valuesTitle": "What We Stand For",
+              "education": "Education",
+              "educationDesc": "We believe in the power of knowledge to foster understanding and appreciation of India's diverse cultural landscape.",
+              "preservation": "Preservation",
+              "preservationDesc": "Protecting and documenting cultural traditions, monuments, and heritage sites for future generations to experience.",
+              "unity": "Unity in Diversity",
+              "unityDesc": "Celebrating the beautiful diversity of Indian culture while highlighting the common threads that unite us all.",
+              "globalReach": "Global Reach",
+              "globalReachDesc": "Making Indian culture accessible to a global audience and fostering cross-cultural understanding and appreciation.",
+              "impactTitle": "Our Impact",
+              "impactDesc": "Since our inception, we have been committed to creating meaningful impact in cultural preservation and education:",
+              "impactList": [
+                "Cultural Documentation: Comprehensive coverage of India's major festivals, traditions, and cultural practices.",
+                "Monument Awareness: Detailed information about historical monuments with visiting guidelines and significance.",
+                "Educational Resources: Creating accessible content for students, researchers, and cultural enthusiasts.",
+                "Global Outreach: Connecting people worldwide with India's rich cultural heritage."
+              ],
+              "teamTitle": "Behind the Mission",
+              "teamIntro": "Our team consists of passionate individuals dedicated to preserving and sharing India's cultural wealth with the world.",
+              "researcher": "Cultural Researchers",
+              "researcherDesc": "Expert historians and cultural anthropologists who ensure accuracy and depth in our content.",
+              "tech": "Technology Team",
+              "techDesc": "Skilled developers and designers making cultural heritage accessible through modern technology.",
+              "creator": "Content Creators",
+              "creatorDesc": "Talented writers and visual artists who bring India's stories to life with engaging content.",
+              "overviewTitle": "Our Platform Overview",
+              "missionHeading": "Mission and Vision",
+              "missionText": "We inspire awareness, preserve, and promote the rich cultural heritage, traditions, and historical monuments of India for a diverse and global audience. Our platform leverages technology to make learning about Indian heritage engaging and accessible, especially for younger generations and international explorers.",
+              "offersHeading": "What the Web App Offers",
+              "offersText": "Experience multimedia content—videos, images, and interactive elements—for immersive learning about festivals, traditional arts, music, dance, cuisine, and historical monuments. Explore virtual tours, 3D explorations, and interactive maps that allow you to discover famous historical sites and dive into their stories as though you were physically present.",
+              "audienceHeading": "Who the Web App Is For",
+              "audienceText": "Cultural Enthusiasts, Content Creators, Tour Guides, and Admins benefit from educational materials, tools for content curation, and features that support community engagement.",
+              "featuresHeading": "Unique Features",
+              "featuresText": "Responsive design and multilingual support maximize accessibility across devices and for users with diverse backgrounds. Community features include feedback, cultural exchange forums, and the ability to suggest new content.",
+              "commitmentHeading": "Commitment to Accurate and Inclusive Content",
+              "commitmentText": "Our verification process ensures factual accuracy and cultural sensitivity through admin reviews and expert contributions. We're committed to presenting both tangible and intangible heritage—covering not only famous sites and monuments, but also living traditions, languages, and everyday cultural practices."
+            },
+            "contact": {
+              "title": "Contact",
+              "header": "💬 Contact Us",
+              "lead": "Please share your thoughts, questions, or suggestions!",
+              "thank_title": "Thank You!",
+              "success_msg": "Your message has been sent successfully. We'll get back to you soon!",
+              "name_label": "Full Name",
+              "name_placeholder": "Enter Your Full Name",
+              "email_label": "Email Address",
+              "email_placeholder": "Email Address",
+              "subject_label": "Subject",
+              "subject_placeholder": "Select Subject",
+              "option_general": "General Inquiry",
+              "option_cultural_data": "Cultural Data Contribution",
+              "option_monument_info": "Monument Information",
+              "option_collaboration": "Collaboration Opportunity",
+              "option_technical": "Technical Issue",
+              "option_feedback": "Feedback & Suggestions",
+              "message_label": "Your Message",
+              "message_placeholder": "Your Message",
+              "send_button": "📤 Send Message"
+            },
+            "culture": {
+              "title": "Culture",
+              "learn_more": "Learn more"
+            },
+            "culturePage": {
+              "title": "Indian Cultural Traditions",
+              "subtitle": "Explore the vibrant festivals, ancient traditions, and cultural practices that form the heart of Indian civilization.",
+              "search_placeholder": "Search cultural traditions...",
+              "all": "All",
+              "no_results": "No cultural traditions found matching your criteria.",
+              "explore": "Explore",
+              "region": "Region",
+              "season": "Season",
+              "significance": "Significance",
+              "back": "Back",
+              "favorite": "Fav",
+              "unfavorite": "Unfavorite",
+              "close": "Close",
+              "dialog_region": "Region",
+              "dialog_season": "Season",
+              "dialog_description": "Description",
+              "dialog_significance": "Significance",
+              "fun_fact": "Fun Fact",
+              "historical_background": "Historical Background",
+              "tips_for_experiencing": "Tips for Experiencing",
+              "timeline_title": "Timeline: From History to Now",
+              "types": {
+                "festival": "Festival",
+                "tradition": "Tradition",
+                "art_form": "Art Form",
+                "other": "Other"
+              }
+            },
+            "heritage": {
+              "title": "Heritage",
+              "details": "Details"
+            },
+            "heritagePage": {
+              "title": "India's Heritage Sites",
+              "subtitle": "Discover the UNESCO World Heritage Sites and ancient monuments that showcase India's glorious past and architectural marvels",
+              "featured": "Featured Heritage Sites",
+              "explore": "Explore",
+              "built": "Built",
+              "builder": "Builder",
+              "entry_fee": "Entry Fee",
+              "history_title": "History",
+              "architecture_title": "Architecture",
+              "fun_fact": "Fun Fact",
+              "best_time": "Best Time",
+              "highlights": "Highlights",
+              "close": "Close",
+              "back": "Back"
+            },
+            "monuments": {
+              "title": "Monuments",
+              "visit": "Visit"
+            },
+            "monumentsPage": {
+              "title": "Famous Indian Monuments",
+              "subtitle": "Explore architectural masterpieces and a few demo/fictitious landmarks included for layout and demo purposes.",
+              "featured": "Featured Monuments",
+              "search_placeholder": "Search monuments...",
+              "all_states": "All States",
+              "state_label": "State",
+              "learn_more": "Learn More",
+              "no_results": "No monuments found matching your search criteria.",
+              "basic_info": "Basic Information",
+              "description": "Description",
+              "architecture": "Architecture",
+              "visitor_info": "Visitor Information",
+              "visiting_hours": "Visiting Hours",
+              "entry_fee": "Entry Fee",
+              "significance": "Significance",
+              "close": "Close",
+              "back": "Back",
+              "type": "Type",
+              "builder": "Builder",
+              "fictional": "Fictional",
+              "types": {
+                "mausoleum": "Mausoleum",
+                "fortified_palace": "Fortified Palace",
+                "victory_tower": "Victory Tower",
+                "triumphal_arch": "Triumphal Arch",
+                "rock_cut_caves": "Rock-cut Caves",
+                "palace": "Palace",
+                "other": "Other"
+              }
+            },
+            "auth": {
+              "login_success": "Login successful! Redirecting...",
+              "login": "Login",
+              "logging_in": "Logging in...",
+              "please_enter_credentials": "Please enter both email and password.",
+              "login_failed": "Login failed. Please try again."
+            },
+            "userLogin": {
+              "title": "User Login",
+              "email": "Email",
+              "password": "Password",
+              "email_placeholder": "enter your email",
+              "password_placeholder": "enter your password",
+              "remember_me": "Remember me",
+              "no_account": "Don't have an account? Sign Up",
+              "forgot_password": "Forgot password?",
+              "forgot_heading": "Forgot Password",
+              "send_otp": "Send OTP",
+              "cancel": "Cancel",
+              "enter_otp": "Enter OTP",
+              "new_password": "New password",
+              "reset_password": "Reset Password",
+              "redirect_prompt": "Please login to access Culture, Heritage, and Monuments content.",
+              "invalid_role": "Invalid credentials for User login. Please check your role.",
+              "missing_fields": "Please enter both email and password.",
+              "enter_email": "Please enter your email"
+            },
+            "types": {
+              "festival": "Festival",
+              "tradition": "Tradition",
+              "art_form": "Art Form",
+              "other": "Other"
+            }
+          },
+          "heritage": {
+            "title": "Heritage",
+            "details": "Details"
+          },
+          "heritagePage": {
+            "title": "India's Heritage Sites",
+            "subtitle": "Discover the UNESCO World Heritage Sites and ancient monuments that showcase India's glorious past and architectural marvels",
+            "featured": "Featured Heritage Sites",
+            "explore": "Explore",
+            "built": "Built",
+            "builder": "Builder",
+            "entry_fee": "Entry Fee",
+            "history_title": "History",
+            "architecture_title": "Architecture",
+            "fun_fact": "Fun Fact",
+            "best_time": "Best Time",
+            "highlights": "Highlights",
+            "close": "Close",
+            "back": "Back"
+          },
+          "monuments": {
+            "title": "Monuments",
+            "visit": "Visit"
+          },
+          "monumentsPage": {
+            "title": "Famous Indian Monuments",
+            "subtitle": "Explore architectural masterpieces and a few demo/fictitious landmarks included for layout and demo purposes.",
+            "featured": "Featured Monuments",
+            "search_placeholder": "Search monuments...",
+            "all_states": "All States",
+            "state_label": "State",
+            "learn_more": "Learn More",
+            "no_results": "No monuments found matching your search criteria.",
+            "basic_info": "Basic Information",
+            "description": "Description",
+            "architecture": "Architecture",
+            "visitor_info": "Visitor Information",
+            "visiting_hours": "Visiting Hours",
+            "entry_fee": "Entry Fee",
+            "significance": "Significance",
+            "close": "Close",
+            "back": "Back",
+            "type": "Type",
+            "builder": "Builder",
+            "fictional": "Fictional",
+            "types": {
+              "mausoleum": "Mausoleum",
+              "fortified_palace": "Fortified Palace",
+              "victory_tower": "Victory Tower",
+              "triumphal_arch": "Triumphal Arch",
+              "rock_cut_caves": "Rock-cut Caves",
+              "palace": "Palace",
+              "other": "Other"
+            }
+          },
+          "auth": {
+            "login_success": "Login successful! Redirecting...",
+            "login": "Login",
+            "logging_in": "Logging in...",
+            "please_enter_credentials": "Please enter both email and password.",
+            "login_failed": "Login failed. Please try again."
+          },
+          "userLogin": {
+            "title": "User Login",
+            "email": "Email",
+            "password": "Password",
+            "email_placeholder": "enter your email",
+            "password_placeholder": "enter your password",
+            "remember_me": "Remember me",
+            "no_account": "Don't have an account? Sign Up",
+            "forgot_password": "Forgot password?",
+            "forgot_heading": "Forgot Password",
+            "send_otp": "Send OTP",
+            "cancel": "Cancel",
+            "enter_otp": "Enter OTP",
+            "new_password": "New password",
+            "reset_password": "Reset Password",
+            "redirect_prompt": "Please login to access Culture, Heritage, and Monuments content.",
+            "invalid_role": "Invalid credentials for User login. Please check your role.",
+            "missing_fields": "Please enter both email and password.",
+            "enter_email": "Please enter your email"
+          },
+          "contentCreatorLogin": {
+            "title": "Content Creator Login",
+            "redirect_prompt": "Please login to access Content Creator features.",
+            "invalid_role": "Invalid credentials for Content Creator login. Please check your role."
+          },
+          "tourGuideLogin": {
+            "title": "Tour Guide Login",
+            "redirect_prompt": "Please login to access Culture, Heritage, and Monuments content.",
+            "invalid_role": "Invalid credentials for Tour Guide login. Please check your role."
+          },
+          "adminLogin": {
+            "login": "Admin Login",
+            "register": "Admin Register",
+            "email_or_username": "Email or Username",
+            "email_or_username_placeholder": "Email or Username",
+            "password_placeholder": "Enter your password",
+            "register_success": "Registration successful! You can now log in using your email or username.",
+            "no_admin": "No admin account found. Please register first.",
+            "invalid_credentials": "Invalid credentials. Please try again or register.",
+            "fill_registration_fields":"Please fill all registration fields.",
+            "invalid_email":"Please enter a valid email address.",
+            "passwords_no_match":"Passwords do not match.",
+            "confirm_password":"Confirm Password",
+            "confirm_password_placeholder":"re-enter password",
+            "back_to_login":"Back to Login",
+            "missing_fields":"Please enter your email/username and password."
+          },
+          "adminSignup": {
+            "title": "Admin Registration",
+            "join_text": "Join as an Admin to manage the heritage platform!",
+            "name_placeholder": "Full Name",
+            "email_placeholder": "Email Address",
+            "password_placeholder": "Password (min 6 characters)",
+            "confirm_password_placeholder": "Confirm Password",
+            "create_account": "Create Admin Account",
+            "creating_account": "Creating Account...",
+            "missing_fields": "All fields are required.",
+            "passwords_no_match": "Passwords do not match.",
+            "already_have_account": "Already have an account?",
+            "login_here": "Login Here"
+          },
+          "contentCreatorSignup": {
+            "title": "Content Creator Registration",
+            "name_label": "Full Name",
+            "name_placeholder": "Full Name",
+            "email_label": "Email Address",
+            "email_placeholder": "Email Address",
+            "password_label": "Password",
+            "password_placeholder": "Password (min 6 characters)",
+            "confirm_password_label": "Confirm Password",
+            "confirm_password_placeholder": "Confirm Password",
+            "missing_fields": "All fields are required.",
+            "passwords_no_match": "Passwords do not match.",
+            "creating_account": "Creating Account...",
+            "create_account": "Create Account",
+            "success": "Account created successfully.",
+            "register_failed": "Registration failed."
+          },
+          "adminDashboard": {
+            "title": "Admin Dashboard",
+            "logout": "Logout",
+            "cultural_title": "Cultural Entries",
+            "cultural_desc": "Festival & Tradition data",
+            "monuments_title": "Monuments",
+            "monuments_desc": "Famous Indian monuments",
+            "heritage_title": "Heritage Sites",
+            "heritage_desc": "World Heritage Sites",
+            "actions": {
+              "manage_cultural_data": "Manage Cultural Data",
+              "view_reports": "View Reports",
+              "system_settings": "System Settings"
+            }
+          },
+          "manageData": {
+            "heritage_edit_title": "Edit Heritage Site",
+            "heritage_add_title": "Add New Heritage Site",
+            "label_name": "Name",
+            "placeholder_example_name": "e.g., Ajanta Caves",
+            "label_location": "Location",
+            "placeholder_location": "e.g., Maharashtra, India",
+            "label_period": "Period",
+            "placeholder_period": "e.g., 2nd century BCE to 480 CE",
+            "label_architecture": "Architecture",
+            "placeholder_architecture": "e.g., Buddhist rock-cut architecture",
+            "label_description": "Description",
+            "placeholder_description": "Detailed description...",
+            "label_significance": "Significance",
+            "update": "Update",
+            "add": "Add",
+            "cancel": "Cancel",
+            "cultural_edit_title": "Edit Cultural Data",
+            "cultural_add_title": "Add New Cultural Data",
+            "label_type": "Type",
+            "select_type": "Select Type",
+            "label_region": "Region",
+            "label_season": "Season",
+            "cultural_data": "Cultural Data",
+            "monument_edit_title": "Edit Monument Data",
+            "monument_add_title": "Add New Monument Data",
+            "label_built": "Built",
+            "label_builder": "Builder",
+            "label_visiting_hours": "Visiting Hours",
+            "label_entry_fee": "Entry Fee",
+            "monument_data": "Monument Data",
+            "current_data": "Current {{type}} Data",
+            "edit": "Edit",
+            "delete": "Delete",
+            "back": "Back",
+            "tab_cultural": "Cultural Data",
+            "tab_monuments": "Monuments",
+            "tab_heritage": "Heritage Sites"
+          },
+          "viewReports": {
+            "title": "Reports & Analytics",
+            "back": "Back",
+            "subtitle": "View reports on user engagement, visitor stats, and export analytics.",
+            "most_visited": "Most Visited Monuments",
+            "visits": "visits",
+            "popular_tours": "Popular Tours",
+            "bookings": "bookings",
+            "active_discussions": "Active Discussions",
+            "posts": "posts",
+            "visitor_stats": "Visitor & Growth Stats",
+            "total_visitors": "Total Visitors",
+            "user_growth": "User Growth",
+            "content_interactions": "Content Interactions",
+            "export_analytics": "Export Analytics"
+          },
+          "articleEditor": {
+            "edit_title": "Edit Article",
+            "title_label": "Title",
+            "body_label": "Body",
+            "upload_images": "Upload Images",
+            "image_alt": "Article image",
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "articlePreview": {
+            "no_article": "No article to preview.",
+            "image_alt": "Article image"
+          },
+          "contentCreatorDashboard": {
+            "title": "Content Creator Studio 🎨",
+            "subtitle": "Create and share amazing heritage content",
+            "nav": {
+              "dashboard": "Dashboard",
+              "my_content": "My Content",
+              "create_new": "Create New",
+              "analytics": "Analytics",
+              "resources": "Resources",
+              "settings": "Settings"
+            },
+            "logout": "Logout",
+            "create_new_content": "Create New Content",
+            "content_overview": "Content Overview",
+            "stats": {
+              "articles_published": "Articles Published",
+              "videos_created": "Videos Created",
+              "galleries_created": "Galleries Created",
+              "total_views": "Total Views"
+            },
+            "recent_projects": "Recent Projects",
+            "my_content_library": "My Content Library",
+            "createCard": {
+              "article": {
+                "title": "Article",
+                "description": "Write about heritage sites, traditions, and culture",
+                "button": "Create Article"
+              },
+              "video": {
+                "title": "Video",
+                "description": "Create documentaries and visual stories",
+                "button": "Create Video"
+              },
+              "gallery": {
+                "title": "Photo Gallery",
+                "description": "Showcase heritage through photography",
+                "button": "Create Gallery"
+              }
+            },
+            "upload": {
+              "video": {
+                "title": "Upload Video",
+                "placeholder_title": "Enter Video Title",
+                "placeholder_description": "Enter Video Description"
+              },
+              "gallery": {
+                "title": "Upload Photo Gallery",
+                "placeholder_title": "Enter Gallery Title",
+                "placeholder_description": "Enter Gallery Description"
+              }
+            },
+            "actions": {
+              "preview": "Preview",
+              "share": "Share",
+              "delete": "Delete",
+              "cancel": "Cancel",
+              "save_video": "Save Video",
+              "save_gallery": "Save Gallery",
+              "close_preview": "Close Preview",
+              "close": "Close"
+            },
+            "delete_confirm": "Are you sure you want to delete \"{{title}}\"?",
+            "preview": {
+              "photo": "Preview",
+              "video": "Video Preview",
+              "no_images": "No images available for this gallery.",
+              "no_video": "No video file available for preview."
+            },
+            "content_analytics": "Content Analytics",
+            "analytics": {
+              "performance": {
+                "title": "Content Performance",
+                "total_views": "Total Views",
+                "published_content": "Published Content",
+                "avg_views_per_published": "Avg views / published",
+                "published_rate": "Published rate"
+              },
+              "engagement": {
+                "title": "User Engagement",
+                "estimated_score": "Estimated engagement score",
+                "shares_social": "Shares / Social",
+                "avg_time_on_content": "Average time on content",
+                "note": "Note: engagement uses current views, media counts and content volume to provide a simple estimate. For accurate engagement, connect analytics events."
+              },
+              "productivity": {
+                "title": "Creator Productivity",
+                "total_projects": "Total Projects",
+                "created_last_30_days": "Created in last 30 days",
+                "avg_per_week": "Avg / week",
+                "drafts": "Drafts"
+              },
+              "cultural": {
+                "title": "Cultural Impact",
+                "monuments_referenced": "Monuments referenced",
+                "coverage": "Monuments coverage",
+                "galleries_images": "Galleries (images)",
+                "across": "across",
+                "galleries": "galleries",
+                "tip": "Tip: tag your content with monument names and regions to increase discoverability and cultural reach."
+              },
+              "videos": { "title": "Videos", "total_uploaded": "Total videos uploaded" },
+              "images": { "title": "Images", "total_across_galleries": "Total images across galleries" },
+              "avg_images_per_gallery": { "title": "Avg images / gallery", "description": "Average images per gallery" },
+              "content_types": { "title": "Content Types", "description": "Unique content types used" }
+            },
+            "resources": {
+              "title": "Content Ideas & Resources",
+              "trending_topics": "Trending Topics",
+              "view_use_idea": "View & Use Idea",
+              "suggested_type": "Suggested content type",
+              "use_idea": "Use This Idea"
+            },
+            "settings": {
+              "title": "Creator Settings",
+              "description": "Manage your creator profile and content preferences.",
+              "go_to_settings": "Go to Settings"
+            }
+          },
+          "userDashboard": {
+            "welcome": "Welcome User!",
+            "logout": "Logout",
+            "tagline": "Discover Soul Of India !",
+            "tab": {
+              "dashboard": "Dashboard",
+              "myJourney": "My Journey",
+              "favorites": "Favorites",
+              "learning": "Learning",
+              "profile": "Profile"
+            },
+            "button": {
+              "exploreCulture": "Explore Culture",
+              "visitHeritage": "Visit Heritage Sites",
+              "discoverMonuments": "Discover Monuments",
+              "addNewVisit": "Add New Visit",
+              "addNewList": "Add New List",
+              "addToJourney": "Add to Journey",
+              "delete": "Delete",
+              "saveList": "Save List"
+            },
+            "heading": {
+              "yourHeritageJourney": "Your Heritage Journey"
+            },
+            "latestContentCreators": "Latest from Content Creators",
+            "myHeritageJourney": "My Heritage Journey",
+            "trackVisits": "Track your visits, experiences, and cultural discoveries here.",
+            "sitesVisited": "Sites Visited:",
+            "noSitesVisited": "No sites visited yet.",
+            "allSitesAdded": "All sites have been added to your journey!",
+            "savedListsTitle": "My Saved Lists",
+            "dialog": {
+              "createNewList": {
+                "title": "Create a New Journey List",
+                "placeholderListName": "List name (e.g. South India Tour)"
+              },
+              "selectMonuments": "Select Monuments",
+              "addCustomPlaces": "Add Custom Places",
+              "addButton": "Add",
+              "selectSite": { "title": "Select a Site to Add" }
+            },
+            "favorites": {
+              "title": "My Favorites",
+              "noFavorites": "No favorites yet. Add favorites from item details.",
+              "remove": "Remove"
+            },
+            "learning": {
+              "title": "Learning Center",
+              "description": "Access educational content, quizzes, and interactive modules about Indian heritage. Choose a category to start a 10-question quiz.",
+              "quizAttempts": "Quiz Attempts: {{attempts}} | Last Score: {{score}}/{{total}}",
+              "startQuiz": "Start Quiz"
+            },
+            "quiz": {
+              "title": "Heritage Quiz",
+              "complete": "Quiz Complete!",
+              "yourScore": "Your Score: {{score}} / {{total}}",
+              "attempts": "Attempts: {{attempts}}",
+              "back": "Back",
+              "next": "Next",
+              "finish": "Finish"
+            },
+            "close": "Close",
+            "alert": {
+              "enterListName": "Please enter a list name"
+            },
+            "progress": {
+              "cultureVisited": "Culture Visited",
+              "heritageVisited": "Heritage Visited",
+              "monumentVisited": "Monument Visited",
+              "learningCompleted": "Learning Completed"
+            }
+          },
+          "userProfile": {
+            "choosePicture": "Choose picture",
+            "placeholder": {
+              "fullName": "Full name",
+              "email": "Email",
+              "location": "Location",
+              "language": "Language",
+              "bio": "Bio"
+            },
+            "button": {
+              "save": "Save",
+              "cancel": "Cancel",
+              "edit": "Edit"
+            },
+            "languageLabel": "Language"
+          },
+          "content": {
+            "culture": {
+              "1": {
+                "name": "Diwali",
+                "description": "The festival of lights celebrated across India with diyas, fireworks, and sweets. It symbolizes the victory of light over darkness and good over evil.",
+                "region": "Pan-India",
+                "season": "October-November",
+                "significance": "Victory of good over evil, prosperity and new beginnings"
+              },
+              "2": {
+                "name": "Holi",
+                "description": "The festival of colors celebrating spring, love, and new beginnings. People throw colored powders and water at each other in joyful celebration.",
+                "region": "North India primarily",
+                "season": "March",
+                "significance": "Celebration of spring, love, and the triumph of good over evil"
+              },
+              "3": {
+                "name": "Classical Dance Forms",
+                "description": "India has eight classical dance forms including Bharatanatyam, Kathak, Odissi, and Kuchipudi, each with unique styles and spiritual significance.",
+                "region": "Various regions",
+                "season": "Year-round",
+                "significance": "Spiritual expression and cultural preservation"
+              },
+              "4": {
+                "name": "Yoga and Meditation",
+                "description": "Ancient practices originating in India for physical, mental, and spiritual well-being, now practiced worldwide.",
+                "region": "Pan-India",
+                "season": "Year-round",
+                "significance": "Holistic wellness and spiritual growth"
+              },
+              "5": {
+                "name": "Ganesh Chaturthi",
+                "description": "Celebration of Lord Ganesha with elaborate decorations, processions, and community gatherings, especially popular in Maharashtra.",
+                "region": "Maharashtra and South India",
+                "season": "August-September",
+                "significance": "Removal of obstacles and new beginnings"
+              },
+              "6": {
+                "name": "Ayurveda",
+                "description": "Ancient system of natural healing and medicine that emphasizes balance between mind, body, and spirit through herbs, diet, and lifestyle.",
+                "region": "Pan-India, especially Kerala",
+                "season": "Year-round",
+                "significance": "Holistic health and natural healing"
+              },
+              "7": {
+                "name": "Kumbh Mela",
+                "description": "One of the world's largest religious gatherings where millions of pilgrims converge to bathe in sacred rivers seeking spiritual cleansing. The event rotates among four pilgrimage sites and is held according to a 12-year cycle.",
+                "region": "Prayagraj, Haridwar, Nashik, Ujjain (rotating)",
+                "season": "Varies (based on astrological timings)",
+                "significance": "Mass pilgrimage for spiritual purification and communal worship"
+              },
+              "8": {
+                "name": "Rajasthani Folk Music & Dance",
+                "description": "A vibrant tradition of music and dance from Rajasthan featuring instruments like the dholak, sarangi, and kamaicha, and dances such as Ghoomar and Kalbelia.",
+                "region": "Rajasthan",
+                "season": "Year-round",
+                "significance": "Oral cultural heritage that preserves regional stories and traditional performing arts"
+              },
+              "9": {
+                "name": "Pattachitra Painting",
+                "description": "A traditional cloth-based scroll painting from Odisha and West Bengal characterized by intricate details and mythological themes.",
+                "region": "Odisha and West Bengal",
+                "season": "Year-round",
+                "significance": "Durable folk-painting tradition integral to temple rituals and storytelling"
+              },
+              "10": {
+                "name": "Thangka-style Miniatures",
+                "description": "Small, highly detailed paintings inspired by Himalayan Thangka traditions, often depicting deities and mandalas for devotional use.",
+                "region": "Himalayan regions and pockets across North India",
+                "season": "Year-round",
+                "significance": "Preserves Buddhist devotional iconography and painting techniques"
+              },
+              "11": {
+                "name": "Warli Painting",
+                "description": "A tribal art form from Maharashtra using simple geometric shapes to depict scenes of daily life, rituals, and nature on mud walls.",
+                "region": "Maharashtra (Warli tribal areas)",
+                "season": "Year-round",
+                "significance": "Represents indigenous visual storytelling and community identity"
+              },
+              "12": {
+                "name": "Kalamkari Textiles",
+                "description": "Hand-painted or block-printed textiles using natural dyes traditionally produced in Andhra Pradesh and Telangana, illustrating epic narratives and floral motifs.",
+                "region": "Andhra Pradesh, Telangana",
+                "season": "Year-round",
+                "significance": "Skilled craft tradition linked to textile design and storytelling"
+              }
+            },
+            "heritage": {
+              "1": {
+                "name": "Hampi",
+                "description": "Ruins of the last great Hindu kingdom in South India, with magnificent temples and royal complexes.",
+                "location": "Karnataka",
+                "period": "Vijayanagara Empire (14th-16th century)",
+                "highlights": "Vijaya Vittala Temple, Virupaksha Temple, Royal Enclosure",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Stone chariot",
+                  "1": "Bas-reliefs",
+                  "2": "Monolithic structures"
+                }
+              },
+              "2": {
+                "name": "Khajuraho Temples",
+                "description": "Group of Hindu and Jain temples famous for their intricate sculptures and architectural excellence.",
+                "location": "Madhya Pradesh",
+                "period": "950-1050 CE",
+                "highlights": "Kandariya Mahadeva, Lakshmana Temple, Erotic Sculptures",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Intricate carvings",
+                  "1": "Sculptural panels",
+                  "2": "Temple festivals"
+                }
+              },
+              "3": {
+                "name": "Konark Sun Temple",
+                "description": "Magnificent temple dedicated to the Sun God, designed as a colossal chariot with stone wheels.",
+                "location": "Odisha",
+                "period": "13th century",
+                "highlights": "Stone chariot, Wheel carvings, Intricate stonework",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Sunrise views",
+                  "1": "Stone wheel carvings",
+                  "2": "Rath design"
+                }
+              },
+              "4": {
+                "name": "Fatehpur Sikri",
+                "description": "Former Mughal capital built by Emperor Akbar, showcasing the finest Mughal architecture.",
+                "location": "Uttar Pradesh",
+                "period": "1571-1585",
+                "highlights": "Buland Darwaza, Jama Masjid, Panch Mahal",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Red sandstone palaces",
+                  "1": "Courtyards",
+                  "2": "Imperial complexes"
+                }
+              },
+              "5": {
+                "name": "Elephanta Caves",
+                "description": "Rock-cut cave temples primarily dedicated to Lord Shiva, featuring impressive sculptures and reliefs.",
+                "location": "Mumbai, Maharashtra",
+                "period": "5th-8th century",
+                "highlights": "Trimurti sculpture, Cave shrines",
+                "bestTime": "November to February",
+                "notableFeatures": {
+                  "0": "Rock-cut architecture",
+                  "1": "Shiva sculptures",
+                  "2": "Island setting"
+                }
+              },
+              "6": {
+                "name": "Meenakshi Amman Temple",
+                "description": "A historic Hindu temple complex known for its towering gopurams covered with colorful sculptures and a vibrant temple festival tradition.",
+                "location": "Madurai, Tamil Nadu",
+                "period": "6th century onward",
+                "highlights": "Meenakshi sanctum, Thousand-pillared hall",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Dravidian architecture",
+                  "1": "Sculpted gopurams",
+                  "2": "Festivals"
+                }
+              },
+              "7": {
+                "name": "Sanchi Stupa",
+                "description": "One of the oldest stone structures in India, built by Emperor Ashoka and an important Buddhist monument with intricately carved gateways.",
+                "location": "Sanchi, Madhya Pradesh",
+                "period": "3rd century BCE onwards",
+                "highlights": "Great Stupa, Toranas (gateways)",
+                "bestTime": "November to February",
+                "notableFeatures": {
+                  "0": "Buddhist stupa",
+                  "1": "Stone carvings",
+                  "2": "Ashokan pillars"
+                }
+              },
+              "8": {
+                "name": "Mysore Palace",
+                "description": "A grand palace of the Wodeyar dynasty, famed for its ornate architectural style and the dazzling Dussehra celebrations.",
+                "location": "Mysore, Karnataka",
+                "period": "1897 (current structure)",
+                "highlights": "Durbar Hall, Royal Pavilion",
+                "bestTime": "October to March",
+                "notableFeatures": {
+                  "0": "Indo-Saracenic architecture",
+                  "1": "Illumination at night",
+                  "2": "Royal collections"
+                }
+              }
+            },
+            "monuments": {
+              "1": {
+                "name": "Taj Mahal",
+                "description": "An ivory-white marble mausoleum built by Shah Jahan in memory of his wife Mumtaz Mahal. It's considered one of the finest examples of Mughal architecture.",
+                "location": "Agra, Uttar Pradesh",
+                "built": "1632-1653",
+                "builder": "Shah Jahan",
+                "architecture": "Indo-Islamic architecture with Persian, Islamic, and Indian elements",
+                "visitingHours": "6:00 AM to 7:00 PM (closed on Fridays)",
+                "entryFee": "₹50 for Indians, ₹1100 for foreigners",
+                "significance": "UNESCO World Heritage Site, Symbol of eternal love"
+              },
+              "2": {
+                "name": "Red Fort",
+                "description": "A historic fortified palace that served as the main residence of the Mughal emperors. It's where India's Prime Minister addresses the nation on Independence Day.",
+                "location": "Delhi",
+                "built": "1638-1648",
+                "builder": "Shah Jahan",
+                "architecture": "Mughal architecture with red sandstone walls",
+                "visitingHours": "9:30 AM to 4:30 PM (closed on Mondays)",
+                "entryFee": "₹35 for Indians, ₹500 for foreigners",
+                "significance": "UNESCO World Heritage Site, Symbol of Indian independence"
+              },
+              "3": {
+                "name": "Qutub Minar",
+                "description": "A 73-meter tall minaret made of red sandstone and marble. It's the tallest brick minaret in the world and showcases Indo-Islamic architecture.",
+                "location": "Delhi",
+                "built": "1192-1220",
+                "builder": "Qutb-ud-din Aibak",
+                "architecture": "Indo-Islamic architecture with intricate carvings",
+                "visitingHours": "7:00 AM to 5:00 PM",
+                "entryFee": "₹30 for Indians, ₹500 for foreigners",
+                "significance": "UNESCO World Heritage Site, Symbol of Islamic rule in India"
+              },
+              "4": {
+                "name": "Gateway of India",
+                "description": "An arch monument built to commemorate the visit of King George V and Queen Mary. It's now an iconic symbol of Mumbai.",
+                "location": "Mumbai, Maharashtra",
+                "built": "1924",
+                "builder": "British Government",
+                "architecture": "Indo-Saracenic architecture",
+                "visitingHours": "24 hours (best visited during sunrise/sunset)",
+                "entryFee": "Free",
+                "significance": "Historic landmark, Symbol of Mumbai"
+              },
+              "5": {
+                "name": "Ajanta and Ellora Caves",
+                "description": "Ancient Buddhist, Hindu, and Jain temples and monasteries carved into rock faces, featuring exquisite sculptures and paintings.",
+                "location": "Maharashtra",
+                "built": "2nd century BCE to 6th century CE",
+                "builder": "Buddhist, Hindu, and Jain monks",
+                "architecture": "Rock-cut architecture with intricate sculptures",
+                "visitingHours": "9:00 AM to 5:30 PM (closed on Mondays)",
+                "entryFee": "₹40 for Indians, ₹600 for foreigners",
+                "significance": "UNESCO World Heritage Sites, Masterpieces of ancient Indian art"
+              },
+              "6": {
+                "name": "Hawa Mahal",
+                "description": "The 'Palace of Winds' is a five-story palace with 953 small windows designed to allow royal ladies to observe street festivals while remaining unseen.",
+                "location": "Jaipur, Rajasthan",
+                "built": "1799",
+                "builder": "Maharaja Sawai Pratap Singh",
+                "architecture": "Rajput architecture with Islamic influences",
+                "visitingHours": "9:00 AM to 4:30 PM",
+                "entryFee": "₹50 for Indians, ₹200 for foreigners",
+                "significance": "Iconic symbol of Jaipur, Architectural marvel"
+              }
+            }
+          }
+        }
+        "all_states": "All States",
+        "state_label": "State",
+        "learn_more": "Learn More",
+        "no_results": "No monuments found matching your search criteria.",
+        "basic_info": "Basic Information",
+        "description": "Description",
+        "architecture": "Architecture",
+        "visitor_info": "Visitor Information",
+        "visiting_hours": "Visiting Hours",
+        "entry_fee": "Entry Fee",
+        "significance": "Significance",
+        "close": "Close",
+        "back": "Back",
+        "type": "Type",
+        "builder": "Builder",
+        "fictional": "Fictional",
+        "types": {
+          "mausoleum": "Mausoleum",
+          "fortified_palace": "Fortified Palace",
+          "victory_tower": "Victory Tower",
+          "triumphal_arch": "Triumphal Arch",
+          "rock_cut_caves": "Rock-cut Caves",
+          "palace": "Palace",
+          "other": "Other"
+        }
+      },
+      "auth": {
+        "login_success": "Login successful! Redirecting...",
+        "login": "Login",
+        "logging_in": "Logging in...",
+        "please_enter_credentials": "Please enter both email and password.",
+        "login_failed": "Login failed. Please try again."
+      },
+
+      "userLogin": {
+        "title": "User Login",
+        "email": "Email",
+        "password": "Password",
+        "email_placeholder": "enter your email",
+        "password_placeholder": "enter your password",
+        "remember_me": "Remember me",
+        "no_account": "Don't have an account? Sign Up",
+        "forgot_password": "Forgot password?",
+        "forgot_heading": "Forgot Password",
+        "send_otp": "Send OTP",
+        "cancel": "Cancel",
+        "enter_otp": "Enter OTP",
+        "new_password": "New password",
+        "reset_password": "Reset Password",
+        "redirect_prompt": "Please login to access Culture, Heritage, and Monuments content.",
+        "invalid_role": "Invalid credentials for User login. Please check your role.",
+        "missing_fields": "Please enter both email and password.",
+        "enter_email": "Please enter your email"
+      },
+
+      "contentCreatorLogin": {
+        "title": "Content Creator Login",
+        "redirect_prompt": "Please login to access Content Creator features.",
+        "invalid_role": "Invalid credentials for Content Creator login. Please check your role."
+      },
+
+      "tourGuideLogin": {
+        "title": "Tour Guide Login",
+        "redirect_prompt": "Please login to access Culture, Heritage, and Monuments content.",
+        "invalid_role": "Invalid credentials for Tour Guide login. Please check your role."
+      },
+
+      "adminLogin": {
+        "login": "Admin Login",
+        "register": "Admin Register",
+        "email_or_username": "Email or Username",
+        "email_or_username_placeholder": "Email or Username",
+        "password_placeholder": "Enter your password",
+        "register_success": "Registration successful! You can now log in using your email or username.",
+        "no_admin": "No admin account found. Please register first.",
+        "invalid_credentials": "Invalid credentials. Please try again or register.",
+        "fill_registration_fields":"Please fill all registration fields.",
+        "invalid_email":"Please enter a valid email address.",
+        "passwords_no_match":"Passwords do not match.",
+        "confirm_password":"Confirm Password",
+        "confirm_password_placeholder":"re-enter password",
+        "back_to_login":"Back to Login",
+        "missing_fields":"Please enter your email/username and password."
+      },
+
+      "adminSignup": {
+        "title": "Admin Registration",
+        "join_text": "Join as an Admin to manage the heritage platform!",
+        "name_placeholder": "Full Name",
+        "email_placeholder": "Email Address",
+        "password_placeholder": "Password (min 6 characters)",
+        "confirm_password_placeholder": "Confirm Password",
+        "create_account": "Create Admin Account",
+        "creating_account": "Creating Account...",
+        "missing_fields": "All fields are required.",
+        "passwords_no_match": "Passwords do not match.",
+        "already_have_account": "Already have an account?",
+        "login_here": "Login Here"
+      },
+      "contentCreatorSignup": {
+        "title": "Content Creator Registration",
+        "name_label": "Full Name",
+        "name_placeholder": "Full Name",
+        "email_label": "Email Address",
+        "email_placeholder": "Email Address",
+        "password_label": "Password",
+        "password_placeholder": "Password (min 6 characters)",
+        "confirm_password_label": "Confirm Password",
+        "confirm_password_placeholder": "Confirm Password",
+        "missing_fields": "All fields are required.",
+        "passwords_no_match": "Passwords do not match.",
+        "creating_account": "Creating Account...",
+        "create_account": "Create Account",
+        "success": "Account created successfully.",
+        "register_failed": "Registration failed."
+      },
+      "adminDashboard": {
+        "title": "Admin Dashboard",
+        "logout": "Logout",
+        "cultural_title": "Cultural Entries",
+        "cultural_desc": "Festival & Tradition data",
+        "monuments_title": "Monuments",
+        "monuments_desc": "Famous Indian monuments",
+        "heritage_title": "Heritage Sites",
+        "heritage_desc": "World Heritage Sites",
+        "actions": {
+          "manage_cultural_data": "Manage Cultural Data",
+          "view_reports": "View Reports",
+          "system_settings": "System Settings"
+        }
+      },
+      "manageData": {
+        "heritage_edit_title": "Edit Heritage Site",
+        "heritage_add_title": "Add New Heritage Site",
+        "label_name": "Name",
+        "placeholder_example_name": "e.g., Ajanta Caves",
+        "label_location": "Location",
+        "placeholder_location": "e.g., Maharashtra, India",
+        "label_period": "Period",
+        "placeholder_period": "e.g., 2nd century BCE to 480 CE",
+        "label_architecture": "Architecture",
+        "placeholder_architecture": "e.g., Buddhist rock-cut architecture",
+        "label_description": "Description",
+        "placeholder_description": "Detailed description...",
+        "label_significance": "Significance",
+        "update": "Update",
+        "add": "Add",
+        "cancel": "Cancel",
+        "cultural_edit_title": "Edit Cultural Data",
+        "cultural_add_title": "Add New Cultural Data",
+        "label_type": "Type",
+        "select_type": "Select Type",
+        "label_region": "Region",
+        "label_season": "Season",
+        "cultural_data": "Cultural Data",
+        "monument_edit_title": "Edit Monument Data",
+        "monument_add_title": "Add New Monument Data",
+        "label_built": "Built",
+        "label_builder": "Builder",
+        "label_visiting_hours": "Visiting Hours",
+        "label_entry_fee": "Entry Fee",
+        "monument_data": "Monument Data",
+        "current_data": "Current {{type}} Data",
+        "edit": "Edit",
+        "delete": "Delete",
+        "back": "Back",
+        "tab_cultural": "Cultural Data",
+        "tab_monuments": "Monuments",
+        "tab_heritage": "Heritage Sites"
+      },
+      "viewReports": {
+        "title": "Reports & Analytics",
+        "back": "Back",
+        "subtitle": "View reports on user engagement, visitor stats, and export analytics.",
+        "most_visited": "Most Visited Monuments",
+        "visits": "visits",
+        "popular_tours": "Popular Tours",
+        "bookings": "bookings",
+        "active_discussions": "Active Discussions",
+        "posts": "posts",
+        "visitor_stats": "Visitor & Growth Stats",
+        "total_visitors": "Total Visitors",
+        "user_growth": "User Growth",
+        "content_interactions": "Content Interactions",
+        "export_analytics": "Export Analytics"
+      },
+      "articleEditor": {
+        "edit_title": "Edit Article",
+        "title_label": "Title",
+        "body_label": "Body",
+        "upload_images": "Upload Images",
+        "image_alt": "Article image",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "articlePreview": {
+        "no_article": "No article to preview.",
+        "image_alt": "Article image"
+      },
+      "contentCreatorDashboard": {
+        "title": "Content Creator Studio 🎨",
+        "subtitle": "Create and share amazing heritage content",
+        "nav": {
+          "dashboard": "Dashboard",
+          "my_content": "My Content",
+          "create_new": "Create New",
+          "analytics": "Analytics",
+          "resources": "Resources",
+          "settings": "Settings"
+        },
+        "logout": "Logout",
+        "create_new_content": "Create New Content",
+        "content_overview": "Content Overview",
+        "stats": {
+          "articles_published": "Articles Published",
+          "videos_created": "Videos Created",
+          "galleries_created": "Galleries Created",
+          "total_views": "Total Views"
+        },
+        "recent_projects": "Recent Projects",
+        "my_content_library": "My Content Library",
+        "createCard": {
+          "article": {
+            "title": "Article",
+            "description": "Write about heritage sites, traditions, and culture",
+            "button": "Create Article"
+          },
+          "video": {
+            "title": "Video",
+            "description": "Create documentaries and visual stories",
+            "button": "Create Video"
+          },
+          "gallery": {
+            "title": "Photo Gallery",
+            "description": "Showcase heritage through photography",
+            "button": "Create Gallery"
+          }
+        },
+        "upload": {
+          "video": {
+            "title": "Upload Video",
+            "placeholder_title": "Enter Video Title",
+            "placeholder_description": "Enter Video Description"
+          },
+          "gallery": {
+            "title": "Upload Photo Gallery",
+            "placeholder_title": "Enter Gallery Title",
+            "placeholder_description": "Enter Gallery Description"
+          }
+        },
+        "actions": {
+          "preview": "Preview",
+          "share": "Share",
+          "delete": "Delete",
+          "cancel": "Cancel",
+          "save_video": "Save Video",
+          "save_gallery": "Save Gallery",
+          "close_preview": "Close Preview",
+          "close": "Close"
+        },
+        "delete_confirm": "Are you sure you want to delete \"{{title}}\"?",
+        "preview": {
+          "photo": "Preview",
+          "video": "Video Preview",
+          "no_images": "No images available for this gallery.",
+          "no_video": "No video file available for preview."
+        },
+        "content_analytics": "Content Analytics",
+        "analytics": {
+          "performance": {
+            "title": "Content Performance",
+            "total_views": "Total Views",
+            "published_content": "Published Content",
+            "avg_views_per_published": "Avg views / published",
+            "published_rate": "Published rate"
+          },
+          "engagement": {
+            "title": "User Engagement",
+            "estimated_score": "Estimated engagement score",
+            "shares_social": "Shares / Social",
+            "avg_time_on_content": "Average time on content",
+            "note": "Note: engagement uses current views, media counts and content volume to provide a simple estimate. For accurate engagement, connect analytics events."
+          },
+          "productivity": {
+            "title": "Creator Productivity",
+            "total_projects": "Total Projects",
+            "created_last_30_days": "Created in last 30 days",
+            "avg_per_week": "Avg / week",
+            "drafts": "Drafts"
+          },
+          "cultural": {
+            "title": "Cultural Impact",
+            "monuments_referenced": "Monuments referenced",
+            "coverage": "Monuments coverage",
+            "galleries_images": "Galleries (images)",
+            "across": "across",
+            "galleries": "galleries",
+            "tip": "Tip: tag your content with monument names and regions to increase discoverability and cultural reach."
+          },
+          "videos": { "title": "Videos", "total_uploaded": "Total videos uploaded" },
+          "images": { "title": "Images", "total_across_galleries": "Total images across galleries" },
+          "avg_images_per_gallery": { "title": "Avg images / gallery", "description": "Average images per gallery" },
+          "content_types": { "title": "Content Types", "description": "Unique content types used" }
+        },
+        "resources": {
+          "title": "Content Ideas & Resources",
+          "trending_topics": "Trending Topics",
+          "view_use_idea": "View & Use Idea",
+          "suggested_type": "Suggested content type",
+          "use_idea": "Use This Idea"
+        },
+        "settings": {
+          "title": "Creator Settings",
+          "description": "Manage your creator profile and content preferences.",
+          "go_to_settings": "Go to Settings"
+        }
+      },
+      "userDashboard": {
+        "welcome": "Welcome User!",
+        "logout": "Logout",
+        "tagline": "Discover Soul Of India !",
+        "tab": {
+          "dashboard": "Dashboard",
+          "myJourney": "My Journey",
+          "favorites": "Favorites",
+          "learning": "Learning",
+          "profile": "Profile"
+        },
+        "button": {
+          "exploreCulture": "Explore Culture",
+          "visitHeritage": "Visit Heritage Sites",
+          "discoverMonuments": "Discover Monuments",
+          "addNewVisit": "Add New Visit",
+          "addNewList": "Add New List",
+          "addToJourney": "Add to Journey",
+          "delete": "Delete",
+          "saveList": "Save List"
+        },
+        "heading": {
+          "yourHeritageJourney": "Your Heritage Journey"
+        },
+        "latestContentCreators": "Latest from Content Creators",
+        "myHeritageJourney": "My Heritage Journey",
+        "trackVisits": "Track your visits, experiences, and cultural discoveries here.",
+        "sitesVisited": "Sites Visited:",
+        "noSitesVisited": "No sites visited yet.",
+        "allSitesAdded": "All sites have been added to your journey!",
+        "savedListsTitle": "My Saved Lists",
+        "dialog": {
+          "createNewList": {
+            "title": "Create a New Journey List",
+            "placeholderListName": "List name (e.g. South India Tour)"
+          },
+          "selectMonuments": "Select Monuments",
+          "addCustomPlaces": "Add Custom Places",
+          "addButton": "Add",
+          "selectSite": { "title": "Select a Site to Add" }
+        },
+        "favorites": {
+          "title": "My Favorites",
+          "noFavorites": "No favorites yet. Add favorites from item details.",
+          "remove": "Remove"
+        },
+        "learning": {
+          "title": "Learning Center",
+          "description": "Access educational content, quizzes, and interactive modules about Indian heritage. Choose a category to start a 10-question quiz.",
+          "quizAttempts": "Quiz Attempts: {{attempts}} | Last Score: {{score}}/{{total}}",
+          "startQuiz": "Start Quiz"
+        },
+        "quiz": {
+          "title": "Heritage Quiz",
+          "complete": "Quiz Complete!",
+          "yourScore": "Your Score: {{score}} / {{total}}",
+          "attempts": "Attempts: {{attempts}}",
+          "back": "Back",
+          "next": "Next",
+          "finish": "Finish"
+        },
+        "close": "Close",
+        "alert": {
+          "enterListName": "Please enter a list name"
+        },
+        "progress": {
+          "cultureVisited": "Culture Visited",
+          "heritageVisited": "Heritage Visited",
+          "monumentVisited": "Monument Visited",
+          "learningCompleted": "Learning Completed"
+        }
+      },
+      "userProfile": {
+        "choosePicture": "Choose picture",
+        "placeholder": {
+          "fullName": "Full name",
+          "email": "Email",
+          "location": "Location",
+          "language": "Language",
+          "bio": "Bio"
+        },
+        "button": {
+          "save": "Save",
+          "cancel": "Cancel",
+          "edit": "Edit"
+        },
+        "languageLabel": "Language"
+      },
+      "content": {
+        "culture": {
+          "1": {
+            "name": "Diwali",
+            "description": "The festival of lights celebrated across India with diyas, fireworks, and sweets. It symbolizes the victory of light over darkness and good over evil.",
+            "region": "Pan-India",
+            "season": "October-November",
+            "significance": "Victory of good over evil, prosperity and new beginnings"
+          },
+          "2": {
+            "name": "Holi",
+            "description": "The festival of colors celebrating spring, love, and new beginnings. People throw colored powders and water at each other in joyful celebration.",
+            "region": "North India primarily",
+            "season": "March",
+            "significance": "Celebration of spring, love, and the triumph of good over evil"
+          },
+          "3": {
+            "name": "Classical Dance Forms",
+            "description": "India has eight classical dance forms including Bharatanatyam, Kathak, Odissi, and Kuchipudi, each with unique styles and spiritual significance.",
+            "region": "Various regions",
+            "season": "Year-round",
+            "significance": "Spiritual expression and cultural preservation"
+          },
+          "4": {
+            "name": "Yoga and Meditation",
+            "description": "Ancient practices originating in India for physical, mental, and spiritual well-being, now practiced worldwide.",
+            "region": "Pan-India",
+            "season": "Year-round",
+            "significance": "Holistic wellness and spiritual growth"
+          },
+          "5": {
+            "name": "Ganesh Chaturthi",
+            "description": "Celebration of Lord Ganesha with elaborate decorations, processions, and community gatherings, especially popular in Maharashtra.",
+            "region": "Maharashtra and South India",
+            "season": "August-September",
+            "significance": "Removal of obstacles and new beginnings"
+          },
+          "6": {
+            "name": "Ayurveda",
+            "description": "Ancient system of natural healing and medicine that emphasizes balance between mind, body, and spirit through herbs, diet, and lifestyle.",
+            "region": "Pan-India, especially Kerala",
+            "season": "Year-round",
+            "significance": "Holistic health and natural healing"
+          },
+          "7": {
+            "name": "Kumbh Mela",
+            "description": "One of the world's largest religious gatherings where millions of pilgrims converge to bathe in sacred rivers seeking spiritual cleansing. The event rotates among four pilgrimage sites and is held according to a 12-year cycle.",
+            "region": "Prayagraj, Haridwar, Nashik, Ujjain (rotating)",
+            "season": "Varies (based on astrological timings)",
+            "significance": "Mass pilgrimage for spiritual purification and communal worship"
+          },
+          "8": {
+            "name": "Rajasthani Folk Music & Dance",
+            "description": "A vibrant tradition of music and dance from Rajasthan featuring instruments like the dholak, sarangi, and kamaicha, and dances such as Ghoomar and Kalbelia.",
+            "region": "Rajasthan",
+            "season": "Year-round",
+            "significance": "Oral cultural heritage that preserves regional stories and traditional performing arts"
+          },
+          "9": {
+            "name": "Pattachitra Painting",
+            "description": "A traditional cloth-based scroll painting from Odisha and West Bengal characterized by intricate details and mythological themes.",
+            "region": "Odisha and West Bengal",
+            "season": "Year-round",
+            "significance": "Durable folk-painting tradition integral to temple rituals and storytelling"
+          },
+          "10": {
+            "name": "Thangka-style Miniatures",
+            "description": "Small, highly detailed paintings inspired by Himalayan Thangka traditions, often depicting deities and mandalas for devotional use.",
+            "region": "Himalayan regions and pockets across North India",
+            "season": "Year-round",
+            "significance": "Preserves Buddhist devotional iconography and painting techniques"
+          },
+          "11": {
+            "name": "Warli Painting",
+            "description": "A tribal art form from Maharashtra using simple geometric shapes to depict scenes of daily life, rituals, and nature on mud walls.",
+            "region": "Maharashtra (Warli tribal areas)",
+            "season": "Year-round",
+            "significance": "Represents indigenous visual storytelling and community identity"
+          },
+          "12": {
+            "name": "Kalamkari Textiles",
+            "description": "Hand-painted or block-printed textiles using natural dyes traditionally produced in Andhra Pradesh and Telangana, illustrating epic narratives and floral motifs.",
+            "region": "Andhra Pradesh, Telangana",
+            "season": "Year-round",
+            "significance": "Skilled craft tradition linked to textile design and storytelling"
+          }
+        },
+        "heritage": {
+          "1": {
+            "name": "Hampi",
+            "description": "Ruins of the last great Hindu kingdom in South India, with magnificent temples and royal complexes.",
+            "location": "Karnataka",
+            "period": "Vijayanagara Empire (14th-16th century)",
+            "highlights": "Vijaya Vittala Temple, Virupaksha Temple, Royal Enclosure",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Stone chariot",
+              "1": "Bas-reliefs",
+              "2": "Monolithic structures"
+            }
+          },
+          "2": {
+            "name": "Khajuraho Temples",
+            "description": "Group of Hindu and Jain temples famous for their intricate sculptures and architectural excellence.",
+            "location": "Madhya Pradesh",
+            "period": "950-1050 CE",
+            "highlights": "Kandariya Mahadeva, Lakshmana Temple, Erotic Sculptures",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Intricate carvings",
+              "1": "Sculptural panels",
+              "2": "Temple festivals"
+            }
+          },
+          "3": {
+            "name": "Konark Sun Temple",
+            "description": "Magnificent temple dedicated to the Sun God, designed as a colossal chariot with stone wheels.",
+            "location": "Odisha",
+            "period": "13th century",
+            "highlights": "Stone chariot, Wheel carvings, Intricate stonework",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Sunrise views",
+              "1": "Stone wheel carvings",
+              "2": "Rath design"
+            }
+          },
+          "4": {
+            "name": "Fatehpur Sikri",
+            "description": "Former Mughal capital built by Emperor Akbar, showcasing the finest Mughal architecture.",
+            "location": "Uttar Pradesh",
+            "period": "1571-1585",
+            "highlights": "Buland Darwaza, Jama Masjid, Panch Mahal",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Red sandstone palaces",
+              "1": "Courtyards",
+              "2": "Imperial complexes"
+            }
+          },
+          "5": {
+            "name": "Elephanta Caves",
+            "description": "Rock-cut cave temples primarily dedicated to Lord Shiva, featuring impressive sculptures and reliefs.",
+            "location": "Mumbai, Maharashtra",
+            "period": "5th-8th century",
+            "highlights": "Trimurti sculpture, Cave shrines",
+            "bestTime": "November to February",
+            "notableFeatures": {
+              "0": "Rock-cut architecture",
+              "1": "Shiva sculptures",
+              "2": "Island setting"
+            }
+          },
+          "6": {
+            "name": "Meenakshi Amman Temple",
+            "description": "A historic Hindu temple complex known for its towering gopurams covered with colorful sculptures and a vibrant temple festival tradition.",
+            "location": "Madurai, Tamil Nadu",
+            "period": "6th century onward",
+            "highlights": "Meenakshi sanctum, Thousand-pillared hall",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Dravidian architecture",
+              "1": "Sculpted gopurams",
+              "2": "Festivals"
+            }
+          },
+          "7": {
+            "name": "Sanchi Stupa",
+            "description": "One of the oldest stone structures in India, built by Emperor Ashoka and an important Buddhist monument with intricately carved gateways.",
+            "location": "Sanchi, Madhya Pradesh",
+            "period": "3rd century BCE onwards",
+            "highlights": "Great Stupa, Toranas (gateways)",
+            "bestTime": "November to February",
+            "notableFeatures": {
+              "0": "Buddhist stupa",
+              "1": "Stone carvings",
+              "2": "Ashokan pillars"
+            }
+          },
+          "8": {
+            "name": "Mysore Palace",
+            "description": "A grand palace of the Wodeyar dynasty, famed for its ornate architectural style and the dazzling Dussehra celebrations.",
+            "location": "Mysore, Karnataka",
+            "period": "1897 (current structure)",
+            "highlights": "Durbar Hall, Royal Pavilion",
+            "bestTime": "October to March",
+            "notableFeatures": {
+              "0": "Indo-Saracenic architecture",
+              "1": "Illumination at night",
+              "2": "Royal collections"
+            }
+          }
+        },
+        "monuments": {
+          "1": {
+            "name": "Taj Mahal",
+            "description": "An ivory-white marble mausoleum built by Shah Jahan in memory of his wife Mumtaz Mahal. It's considered one of the finest examples of Mughal architecture.",
+            "location": "Agra, Uttar Pradesh",
+            "built": "1632-1653",
+            "builder": "Shah Jahan",
+            "architecture": "Indo-Islamic architecture with Persian, Islamic, and Indian elements",
+            "visitingHours": "6:00 AM to 7:00 PM (closed on Fridays)",
+            "entryFee": "₹50 for Indians, ₹1100 for foreigners",
+            "significance": "UNESCO World Heritage Site, Symbol of eternal love"
+          },
+          "2": {
+            "name": "Red Fort",
+            "description": "A historic fortified palace that served as the main residence of the Mughal emperors. It's where India's Prime Minister addresses the nation on Independence Day.",
+            "location": "Delhi",
+            "built": "1638-1648",
+            "builder": "Shah Jahan",
+            "architecture": "Mughal architecture with red sandstone walls",
+            "visitingHours": "9:30 AM to 4:30 PM (closed on Mondays)",
+            "entryFee": "₹35 for Indians, ₹500 for foreigners",
+            "significance": "UNESCO World Heritage Site, Symbol of Indian independence"
+          },
+          "3": {
+            "name": "Qutub Minar",
+            "description": "A 73-meter tall minaret made of red sandstone and marble. It's the tallest brick minaret in the world and showcases Indo-Islamic architecture.",
+            "location": "Delhi",
+            "built": "1192-1220",
+            "builder": "Qutb-ud-din Aibak",
+            "architecture": "Indo-Islamic architecture with intricate carvings",
+            "visitingHours": "7:00 AM to 5:00 PM",
+            "entryFee": "₹30 for Indians, ₹500 for foreigners",
+            "significance": "UNESCO World Heritage Site, Symbol of Islamic rule in India"
+          },
+          "4": {
+            "name": "Gateway of India",
+            "description": "An arch monument built to commemorate the visit of King George V and Queen Mary. It's now an iconic symbol of Mumbai.",
+            "location": "Mumbai, Maharashtra",
+            "built": "1924",
+            "builder": "British Government",
+            "architecture": "Indo-Saracenic architecture",
+            "visitingHours": "24 hours (best visited during sunrise/sunset)",
+            "entryFee": "Free",
+            "significance": "Historic landmark, Symbol of Mumbai"
+          },
+          "5": {
+            "name": "Ajanta and Ellora Caves",
+            "description": "Ancient Buddhist, Hindu, and Jain temples and monasteries carved into rock faces, featuring exquisite sculptures and paintings.",
+            "location": "Maharashtra",
+            "built": "2nd century BCE to 6th century CE",
+            "builder": "Buddhist, Hindu, and Jain monks",
+            "architecture": "Rock-cut architecture with intricate sculptures",
+            "visitingHours": "9:00 AM to 5:30 PM (closed on Mondays)",
+            "entryFee": "₹40 for Indians, ₹600 for foreigners",
+            "significance": "UNESCO World Heritage Sites, Masterpieces of ancient Indian art"
+          },
+          "6": {
+            "name": "Hawa Mahal",
+            "description": "The 'Palace of Winds' is a five-story palace with 953 small windows designed to allow royal ladies to observe street festivals while remaining unseen.",
+            "location": "Jaipur, Rajasthan",
+            "built": "1799",
+            "builder": "Maharaja Sawai Pratap Singh",
+            "architecture": "Rajput architecture with Islamic influences",
+            "visitingHours": "9:00 AM to 4:30 PM",
+            "entryFee": "₹50 for Indians, ₹200 for foreigners",
+            "significance": "Iconic symbol of Jaipur, Architectural marvel"
+          }
+        }
+      }
+    }

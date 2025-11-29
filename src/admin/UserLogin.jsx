@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { authenticateUser, rememberCredentials, getRememberedCredentials, initiateForgotPassword, verifyOtpAndReset } from '../services/authService';
 import './Admin.css';
@@ -19,12 +20,13 @@ const UserLogin = () => {
   const [redirectMessage, setRedirectMessage] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Check if user was redirected from protected content
     const urlParams = new URLSearchParams(location.search);
     if (urlParams.get('redirect') === 'protected-content') {
-      setRedirectMessage('Please login to access Culture, Heritage, and Monuments content.');
+      setRedirectMessage(t('userLogin.redirect_prompt'));
     }
   }, [location]);
 
@@ -40,7 +42,7 @@ const UserLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username.trim() || !password.trim()) {
-      setError('Please enter both email and password.');
+      setError(t('auth.please_enter_credentials'));
       return;
     }
 
@@ -54,7 +56,7 @@ const UserLogin = () => {
         // Check if user role matches the login type
         if (result.user.role === 'user') {
           // Show success message briefly then navigate so user sees the confirmation
-          setSuccessMessage('Login successful! Redirecting...');
+          setSuccessMessage(t('auth.login_success'));
           const previousPage = sessionStorage.getItem('previousPage');
           setTimeout(() => {
             setSuccessMessage('');
@@ -66,7 +68,7 @@ const UserLogin = () => {
             }
           }, 800);
         } else {
-          setError('Invalid credentials for User login. Please check your role.');
+          setError(t('userLogin.invalid_role'));
         }
       } else {
         setError(result.message);
@@ -74,7 +76,7 @@ const UserLogin = () => {
         // rememberCredentials will be handled when we actually navigate (so it persists before leaving)
     } catch (err) {
       console.error('UserLogin error:', err);
-      setError('Login failed. Please try again.');
+      setError(t('auth.login_failed'));
     } finally {
       setLoading(false);
     }
@@ -104,7 +106,7 @@ const UserLogin = () => {
         onClick={() => navigate('/')}
         style={{ position: 'absolute', left: 20, top: 20, padding: '8px 12px', borderRadius: 6, border: 'none', background: '#0d0d0dff', color: 'white', cursor: 'pointer' }}
       >
-        Back
+        {t('nav.back')}
       </button>
       <div className="admin-login-form">
         {successMessage && (
@@ -112,34 +114,34 @@ const UserLogin = () => {
             <div className="auth-success">{successMessage}</div>
           </div>
         )}
-        <h1>User Login</h1>
+        <h1>{t('userLogin.title')}</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('userLogin.email')}</label>
             <input
               type="email"
               id="email"
               value={username}
               onChange={e => setUsername(e.target.value)}
-              placeholder="enter your email"
+              placeholder={t('userLogin.email_placeholder')}
               autoComplete="username"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t('userLogin.password')}</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              placeholder="enter your password"
+              placeholder={t('userLogin.password_placeholder')}
               autoComplete="current-password"
             />
           </div>
 
           <div className="form-actions" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
-            <button type="submit" className="admin-btn secondary" disabled={loading} style={{ width: 220, maxWidth: '90%', background: loading ? '#888' : '#1976d2', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 6 }}>{loading ? 'Logging in...' : 'Login'}</button>
+            <button type="submit" className="admin-btn secondary" disabled={loading} style={{ width: 220, maxWidth: '90%', background: loading ? '#888' : '#1976d2', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 6 }}>{loading ? t('auth.logging_in') : t('auth.login')}</button>
           </div>
 
           {redirectMessage && (
@@ -152,27 +154,27 @@ const UserLogin = () => {
 
           <div style={{ marginTop: '1rem' }}>
             <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} /> Remember me
+              <input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} /> {t('userLogin.remember_me')}
             </label>
             <div style={{ marginTop: 8 }}>
-              <a href="#" onClick={() => navigate('/admin/user-signup')}>Don't have an account? Sign Up</a>
+              <a href="#" onClick={() => navigate('/admin/user-signup')}>{t('userLogin.no_account')}</a>
               {' | '}
-              <a href="#" onClick={(e) => { e.preventDefault(); setShowForgot(s => !s); }}>Forgot password?</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setShowForgot(s => !s); }}>{t('userLogin.forgot_password')}</a>
             </div>
             {showForgot && (
               <div style={{ marginTop: 12, padding: 12, border: '1px solid #eee', borderRadius: 8 }}>
-                <h4>Forgot Password</h4>
-                <input type="email" placeholder="Enter your email" value={forgotEmail} onChange={e => setForgotEmail(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
+                <h4>{t('userLogin.forgot_heading')}</h4>
+                <input type="email" placeholder={t('userLogin.email_placeholder')} value={forgotEmail} onChange={e => setForgotEmail(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
                 <div style={{ display: 'flex', gap: 8 }}>
-                  <button onClick={startForgot} className="admin-btn">Send OTP</button>
-                  <button onClick={() => { setForgotEmail(''); setOtp(''); setNewPassword(''); setShowForgot(false); }} className="admin-btn secondary">Cancel</button>
+                  <button onClick={startForgot} className="admin-btn">{t('userLogin.send_otp')}</button>
+                  <button onClick={() => { setForgotEmail(''); setOtp(''); setNewPassword(''); setShowForgot(false); }} className="admin-btn secondary">{t('userLogin.cancel')}</button>
                 </div>
                 {forgotMessage && <div style={{ marginTop: 8 }}>{forgotMessage}</div>}
                 <div style={{ marginTop: 12 }}>
-                  <input type="text" placeholder="Enter OTP" value={otp} onChange={e => setOtp(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
-                  <input type="password" placeholder="New password" value={newPassword} onChange={e => setNewPassword(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
+                  <input type="text" placeholder={t('userLogin.enter_otp')} value={otp} onChange={e => setOtp(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
+                  <input type="password" placeholder={t('userLogin.new_password')} value={newPassword} onChange={e => setNewPassword(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
                   <div style={{ display: 'flex', gap: 8 }}>
-                    <button onClick={submitReset} className="admin-btn">Reset Password</button>
+                    <button onClick={submitReset} className="admin-btn">{t('userLogin.reset_password')}</button>
                   </div>
                 </div>
               </div>

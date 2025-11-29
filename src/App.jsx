@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { UserProgressProvider } from './context/UserProgressContext';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
@@ -45,6 +46,7 @@ import LanguageContext from './context/LanguageContext';
 // Navigation Component
 const Navigation = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   // ensure hooks always run in the same order
   const { language, setLanguage } = useContext(LanguageContext);
   const [selectedRole, setSelectedRole] = useState("");
@@ -73,27 +75,27 @@ const Navigation = () => {
   return (
     <nav className="main-nav">
       <div className="nav-container">
-        <Link to="/" className="nav-brand">
-           INDIAN HERITAGE
-        </Link>
+          <Link to="/" className="nav-brand">
+            {t('site.title')}
+          </Link>
         <div className="nav-links">
           <Link 
             to="/" 
             className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
           >
-            Home
+            {t('nav.home')}
           </Link>
           <Link 
             to="/about" 
             className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
           >
-            About
+            {t('nav.about')}
           </Link>
           <Link 
             to="/contact" 
             className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
           >
-            Contact
+            {t('nav.contact')}
           </Link>
           {/* Admin button removed */}
           <select
@@ -102,7 +104,7 @@ const Navigation = () => {
             onChange={e => setSelectedRole(e.target.value)}
             aria-label="Select Role"
           >
-            <option value="" disabled>Select Role</option>
+            <option value="" disabled>{t('nav.selectRole')}</option>
             <option value="admin">Admin</option>
             <option value="user">User</option>
             <option value="content-creator">Content Creator</option>
@@ -124,7 +126,7 @@ const Navigation = () => {
                 }
               }}
             >
-              Login
+              {t('nav.login')}
             </button>
           )}
           <select
@@ -146,6 +148,7 @@ const Navigation = () => {
 // Footer Component
 const Footer = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   const isAdminRoute = location.pathname.startsWith('/admin');
   // Do not show footer on the Content Creator Dashboard or Login page
   const isContentCreatorDashboard = location.pathname.startsWith('/admin/content-creator-dashboard');
@@ -215,7 +218,7 @@ const Footer = () => {
     <footer className="main-footer">
       <div className="footer-container">
         <div className="footer-bottom">
-          <p>© 2025 Indian Heritage Admin Panel. All rights reserved</p>
+          <p>{t('footer.copy')}</p>
         </div>
       </div>
     </footer>
@@ -223,15 +226,30 @@ const Footer = () => {
 };
 
 function App() {
-  const [language, setLanguage] = useState('en');
-  
+  const { i18n } = useTranslation();
+  const initialLang = typeof window !== 'undefined' ? (localStorage.getItem('language') || i18n.language || 'en') : 'en';
+  const [languageState, setLanguageState] = useState(initialLang);
+
   // Load registered users on app start
   React.useEffect(() => {
     loadRegisteredUsers();
+    // ensure i18n uses stored language
+    const stored = localStorage.getItem('language');
+    if (stored && stored !== i18n.language) {
+      i18n.changeLanguage(stored);
+      setLanguageState(stored);
+    }
   }, []);
-  
+
+  const setLanguage = (lang) => {
+    if (!lang) return;
+    i18n.changeLanguage(lang);
+    localStorage.setItem('language', lang);
+    setLanguageState(lang);
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language: languageState, setLanguage }}>
       <UserProgressProvider>
         <Router>
           <div className="App">

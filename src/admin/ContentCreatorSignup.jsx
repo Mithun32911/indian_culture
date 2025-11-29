@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { registerUser } from '../services/authService';
 
 const ContentCreatorSignup = () => {
@@ -13,6 +14,7 @@ const ContentCreatorSignup = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleChange = (e) => {
     setFormData({
@@ -28,12 +30,12 @@ const ContentCreatorSignup = () => {
     e.preventDefault();
 
     if (!formData.name.trim() || !formData.email.trim() || !formData.password.trim() || !formData.confirmPassword.trim()) {
-      setError('All fields are required.');
+      setError(t('contentCreatorSignup.missing_fields', 'All fields are required.'));
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match.');
+      setError(t('contentCreatorSignup.passwords_no_match', 'Passwords do not match.'));
       return;
     }
 
@@ -49,17 +51,17 @@ const ContentCreatorSignup = () => {
       );
 
       if (result && result.success) {
-        setSuccess(result.message || 'Account created successfully.');
+        setSuccess(result.message || t('contentCreatorSignup.success', 'Account created successfully.'));
         setTimeout(() => {
           navigate('/admin/content-creator-login');
         }, 1500);
       } else {
-        setError(result?.message || 'Registration failed.');
+        setError(result?.message || t('contentCreatorSignup.register_failed', 'Registration failed.'));
       }
     } catch (err) {
       // Log detailed error for debugging
       console.error('Signup error:', err);
-      setError('Registration failed. Please try again.');
+      setError(t('contentCreatorSignup.register_failed', 'Registration failed. Please try again.'));
     } finally {
       setLoading(false);
     }
@@ -68,37 +70,37 @@ const ContentCreatorSignup = () => {
   return (
     <div className="admin-container">
       <div className="admin-login-form">
-        <h1>Content Creator Registration</h1>
+        <h1>{t('contentCreatorSignup.title', 'Content Creator Registration')}</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" />
+            <label htmlFor="name">{t('contentCreatorSignup.name_label', 'Full Name')}</label>
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t('contentCreatorSignup.name_placeholder', 'Full Name')} />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" autoComplete="username" />
+            <label htmlFor="email">{t('contentCreatorSignup.email_label', 'Email Address')}</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder={t('contentCreatorSignup.email_placeholder', 'Email Address')} autoComplete="username" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password (min 6 characters)" autoComplete="new-password" />
+            <label htmlFor="password">{t('contentCreatorSignup.password_label', 'Password')}</label>
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} placeholder={t('contentCreatorSignup.password_placeholder', 'Password (min 6 characters)')} autoComplete="new-password" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} placeholder="Confirm Password" autoComplete="new-password" />
+            <label htmlFor="confirmPassword">{t('contentCreatorSignup.confirm_password_label', 'Confirm Password')}</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} placeholder={t('contentCreatorSignup.confirm_password_placeholder', 'Confirm Password')} autoComplete="new-password" />
           </div>
 
           <div className="form-actions" style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center' }}>
-            <button type="submit" className="admin-btn primary" disabled={loading} style={{ width: 240, maxWidth: '90%', margin: '0 auto', background: loading ? '#888' : '#1976d2', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 6 }}>{loading ? 'Creating Account...' : 'Create Account'}</button>
+            <button type="submit" className="admin-btn primary" disabled={loading} style={{ width: 240, maxWidth: '90%', margin: '0 auto', background: loading ? '#888' : '#1976d2', color: '#fff', border: 'none', padding: '0.6rem 1rem', borderRadius: 6 }}>{loading ? t('contentCreatorSignup.creating_account', 'Creating Account...') : t('contentCreatorSignup.create_account', 'Create Account')}</button>
           </div>
 
           {error && <div className="error-box" style={{ marginTop: '1rem' }}>{error}</div>}
           {success && <div className="info-box" style={{ marginTop: '1rem' }}>{success}</div>}
 
           <div style={{ marginTop: '1rem' }}>
-            <button type="button" onClick={() => navigate('/admin/content-creator-login')} style={{ background: 'none', border: 'none', color: '#48D1CC', textDecoration: 'underline', cursor: 'pointer' }}>Already have an account? Login Here</button>
+            <button type="button" onClick={() => navigate('/admin/content-creator-login')} style={{ background: 'none', border: 'none', color: '#48D1CC', textDecoration: 'underline', cursor: 'pointer' }}>{t('contentCreatorSignup.already_have_account', 'Already have an account? Login Here')}</button>
           </div>
         </form>
       </div>

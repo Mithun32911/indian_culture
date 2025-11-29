@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { initiateForgotPassword } from '../services/authService';
 import './Admin.css';
 
 const AdminLogin = ({ onLogin }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [credentials, setCredentials] = useState({ identifier: '', password: '' }); // identifier = email or username
   const [isRegistering, setIsRegistering] = useState(false);
   const [registerData, setRegisterData] = useState({ email: '', username: '', password: '', confirmPassword: '' });
@@ -35,17 +37,17 @@ const AdminLogin = ({ onLogin }) => {
     e.preventDefault();
     const { email, username, password, confirmPassword } = registerData;
     if (!email || !username || !password || !confirmPassword) {
-      setError('Please fill all registration fields.');
+      setError(t('adminLogin.fill_registration_fields') || 'Please fill all registration fields.');
       return;
     }
     // Simple email validation
     const emailValid = /^\S+@\S+\.\S+$/.test(email);
     if (!emailValid) {
-      setError('Please enter a valid email address.');
+      setError(t('adminLogin.invalid_email') || 'Please enter a valid email address.');
       return;
     }
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError(t('adminLogin.passwords_no_match') || 'Passwords do not match.');
       return;
     }
     // Save only necessary fields
@@ -64,11 +66,11 @@ const AdminLogin = ({ onLogin }) => {
     // clear previous error
     setError('');
     if (!identifier || !password) {
-      setError('Please enter your email/username and password.');
+      setError(t('adminLogin.missing_fields') || 'Please enter your email/username and password.');
       return;
     }
     if (!saved) {
-      setError('No admin account found. Please register first.');
+      setError(t('adminLogin.no_admin') || 'No admin account found. Please register first.');
       return;
     }
     const matchesUsername = identifier === saved.username && password === saved.password;
@@ -76,14 +78,14 @@ const AdminLogin = ({ onLogin }) => {
     if (matchesUsername || matchesEmail) {
       setError('');
       // show success message above the login block
-      setSuccessMessage('Login successful Redirecting');
+      setSuccessMessage(t('auth.login_success'));
       // proceed after a short delay so the user sees the message
       setTimeout(() => {
         setSuccessMessage('');
         if (typeof onLogin === 'function') onLogin();
       }, 800);
     } else {
-      setError('Invalid credentials. Please try again or register.');
+      setError(t('adminLogin.invalid_credentials') || 'Invalid credentials. Please try again or register.');
     }
   };
 
@@ -95,7 +97,7 @@ const AdminLogin = ({ onLogin }) => {
         onClick={() => navigate('/')}
         style={{ position: 'absolute', left: 20, top: 20, padding: '8px 12px', borderRadius: 6, border: 'none', background: '#0d0d0dff', color: 'white',   cursor: 'pointer' }}
       >
-        Back
+        {t('nav.back')}
       </button>
       <div className="admin-login-form">
         {successMessage && (
@@ -103,11 +105,11 @@ const AdminLogin = ({ onLogin }) => {
             <div className="auth-success">{successMessage}</div>
           </div>
         )}
-        <h1>{isRegistering ? 'Admin Register' : 'Admin Login'}</h1>
+        <h1>{isRegistering ? t('adminLogin.register') : t('adminLogin.login')}</h1>
         {isRegistering ? (
           <form onSubmit={handleRegister}>
             <div className="form-group">
-              <label htmlFor="reg-email">Email:</label>
+              <label htmlFor="reg-email">{t('userLogin.email')}:</label>
               <input
                 type="email"
                 id="reg-email"
@@ -115,11 +117,11 @@ const AdminLogin = ({ onLogin }) => {
                 value={registerData.email}
                 onChange={handleRegisterInputChange}
                 required
-                placeholder="enter your email"
+                placeholder={t('userLogin.email_placeholder')}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="reg-username">Username:</label>
+              <label htmlFor="reg-username">{t('adminLogin.email_or_username')}:</label>
               <input
                 type="text"
                 id="reg-username"
@@ -127,11 +129,11 @@ const AdminLogin = ({ onLogin }) => {
                 value={registerData.username}
                 onChange={handleRegisterInputChange}
                 required
-                placeholder="enter your username"
+                placeholder={t('adminLogin.email_or_username_placeholder')}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="reg-password">Password:</label>
+              <label htmlFor="reg-password">{t('userLogin.password')}:</label>
               <input
                 type="password"
                 id="reg-password"
@@ -139,11 +141,11 @@ const AdminLogin = ({ onLogin }) => {
                 value={registerData.password}
                 onChange={handleRegisterInputChange}
                 required
-                placeholder=" enter your password"
+                placeholder={t('userLogin.password_placeholder')}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="reg-confirm">Confirm Password:</label>
+              <label htmlFor="reg-confirm">{t('adminLogin.confirm_password') || 'Confirm Password'}:</label>
               <input
                 type="password"
                 id="reg-confirm"
@@ -151,18 +153,18 @@ const AdminLogin = ({ onLogin }) => {
                 value={registerData.confirmPassword}
                 onChange={handleRegisterInputChange}
                 required
-                placeholder="re-enter password"
+                placeholder={t('adminLogin.confirm_password_placeholder') || 're-enter password'}
               />
             </div>
             <div className="admin-btn-row">
-              <button type="submit" className="admin-btn primary">Register</button>
-              <button type="button" className="admin-btn" onClick={() => setIsRegistering(false)}>Back to Login</button>
+              <button type="submit" className="admin-btn primary">{t('adminLogin.register') || 'Register'}</button>
+              <button type="button" className="admin-btn" onClick={() => setIsRegistering(false)}>{t('adminLogin.back_to_login') || 'Back to Login'}</button>
             </div>
           </form>
         ) : (
           <form onSubmit={handleLogin}>
             <div className="form-group">
-              <label htmlFor="identifier">Email or Username:</label>
+              <label htmlFor="identifier">{t('adminLogin.email_or_username')}:</label>
               <input
                 type="text"
                 id="identifier"
@@ -170,11 +172,11 @@ const AdminLogin = ({ onLogin }) => {
                 value={credentials.identifier}
                 onChange={handleInputChange}
                 required
-                placeholder="Email or Username"
+                placeholder={t('adminLogin.email_or_username_placeholder')}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">{t('userLogin.password')}:</label>
               <input
                 type="password"
                 id="password"
@@ -182,26 +184,26 @@ const AdminLogin = ({ onLogin }) => {
                 value={credentials.password}
                 onChange={handleInputChange}
                 required
-                placeholder="Enter your password"
+                placeholder={t('adminLogin.password_placeholder')}
               />
             </div>
             <div className="admin-btn-row">
-              <button type="submit" className="admin-btn primary">Login</button>
-              <button type="button" className="admin-btn" onClick={() => setIsRegistering(true)}>Register</button>
+              <button type="submit" className="admin-btn primary">{t('adminLogin.login')}</button>
+              <button type="button" className="admin-btn" onClick={() => setIsRegistering(true)}>{t('adminLogin.register')}</button>
             </div>
             {error && <div className="auth-error">{error}</div>}
             <div style={{ marginTop: 12 }}>
               <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                <input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} /> Remember me
+                <input type="checkbox" checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} /> {t('userLogin.remember_me')}
               </label>
               {' | '}
-              <a href="#" onClick={(e) => { e.preventDefault(); setShowForgot(s => !s); }}>Forgot password?</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setShowForgot(s => !s); }}>{t('userLogin.forgot_password')}</a>
               {showForgot && (
                 <div style={{ marginTop: 8, padding: 8, border: '1px solid #eee', borderRadius: 6 }}>
-                  <input value={forgotEmail} onChange={e => setForgotEmail(e.target.value)} placeholder="Enter admin email" style={{ width: '100%', marginBottom: 8 }} />
+                  <input value={forgotEmail} onChange={e => setForgotEmail(e.target.value)} placeholder={t('userLogin.email_placeholder')} style={{ width: '100%', marginBottom: 8 }} />
                   <div style={{ display: 'flex', gap: 8 }}>
-                    <button className="admin-btn" onClick={() => { setForgotMessage(''); const res = initiateForgotPassword(forgotEmail.trim()); setForgotMessage(res.message); }}>Send OTP</button>
-                    <button className="admin-btn secondary" onClick={() => { setShowForgot(false); setForgotEmail(''); setForgotMessage(''); }}>Cancel</button>
+                    <button className="admin-btn" onClick={() => { setForgotMessage(''); const res = initiateForgotPassword(forgotEmail.trim()); setForgotMessage(res.message); }}>{t('userLogin.send_otp')}</button>
+                    <button className="admin-btn secondary" onClick={() => { setShowForgot(false); setForgotEmail(''); setForgotMessage(''); }}>{t('userLogin.cancel')}</button>
                   </div>
                   {forgotMessage && <div style={{ marginTop: 8 }}>{forgotMessage}</div>}
                 </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../services/authService';
 
@@ -13,6 +14,7 @@ const AdminSignup = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleChange = (e) => {
     setFormData({
@@ -28,12 +30,12 @@ const AdminSignup = () => {
     e.preventDefault();
     
     if (!formData.name.trim() || !formData.email.trim() || !formData.password.trim() || !formData.confirmPassword.trim()) {
-      setError('All fields are required.');
+      setError(t('adminSignup.missing_fields', 'All fields are required.'));
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match.');
+      setError(t('adminSignup.passwords_no_match', 'Passwords do not match.'));
       return;
     }
 
@@ -79,14 +81,14 @@ const AdminSignup = () => {
         padding: '2.5rem 2rem',
         textAlign: 'center',
       }}>
-        <legend style={{ 
+          <legend style={{ 
           fontSize: '2rem', 
           fontWeight: 'bold', 
           color: '#fff', 
           letterSpacing: '2px', 
           marginBottom: '1.5rem' 
         }}>
-          Admin Registration
+          {t('adminSignup.title', 'Admin Registration')}
         </legend>
         
         <form onSubmit={handleSubmit}>
@@ -96,7 +98,7 @@ const AdminSignup = () => {
             fontSize: '1.1rem', 
             marginBottom: '2rem' 
           }}>
-            Join as an Admin to manage the heritage platform!
+            {t('adminSignup.join_text', 'Join as an Admin to manage the heritage platform!')}
           </p>
 
           <input
@@ -104,7 +106,7 @@ const AdminSignup = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Full Name"
+            placeholder={t('adminSignup.name_placeholder', 'Full Name')}
             style={{
               width: '100%',
               padding: '0.8rem',
@@ -124,7 +126,7 @@ const AdminSignup = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Email Address"
+            placeholder={t('adminSignup.email_placeholder', 'Email Address')}
             autoComplete="username"
             style={{
               width: '100%',
@@ -145,7 +147,7 @@ const AdminSignup = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="Password (min 6 characters)"
+            placeholder={t('adminSignup.password_placeholder', 'Password (min 6 characters)')}
             autoComplete="new-password"
             style={{
               width: '100%',
@@ -166,7 +168,7 @@ const AdminSignup = () => {
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Confirm Password"
+            placeholder={t('adminSignup.confirm_password_placeholder', 'Confirm Password')}
             autoComplete="new-password"
             style={{
               width: '100%',
@@ -200,7 +202,7 @@ const AdminSignup = () => {
               letterSpacing: '1px',
             }}
           >
-            {loading ? 'Creating Account...' : 'Create Admin Account'}
+            {loading ? t('adminSignup.creating_account', 'Creating Account...') : t('adminSignup.create_account', 'Create Admin Account')}
           </button>
 
           {error && (
@@ -263,7 +265,7 @@ const AdminSignup = () => {
           </div>
 
           <p style={{ marginTop: '1.5rem', fontSize: '1rem' }}>
-            Already have an account?{' '}
+            {t('adminSignup.already_have_account', 'Already have an account?')}{' '}
             <button
               type="button"
               onClick={() => navigate('/admin/enthusiast-login')}
@@ -277,7 +279,7 @@ const AdminSignup = () => {
                 fontSize: '1rem'
               }}
             >
-              Login Here
+              {t('adminSignup.login_here', 'Login Here')}
             </button>
           </p>
         </form>

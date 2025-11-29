@@ -1,9 +1,11 @@
 import React from 'react';
 import './Admin.css';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ViewReports = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   // Example analytics data
   const analytics = {
     mostVisitedMonuments: [
@@ -41,53 +43,53 @@ const ViewReports = () => {
   return (
     <div className="view-reports-container styled-reports">
       <div className="reports-header-bar">
-        <h1 className="reports-title">Reports & Analytics</h1>
+        <h1 className="reports-title">{t('viewReports.title', 'Reports & Analytics')}</h1>
         <button
           className="back-btn reports-back-btn"
           onClick={() => navigate('/admin')}
         >
-          Back
+          {t('viewReports.back', 'Back')}
         </button>
       </div>
-      <p className="reports-subtitle">View reports on user engagement, visitor stats, and export analytics.</p>
+      <p className="reports-subtitle">{t('viewReports.subtitle', 'View reports on user engagement, visitor stats, and export analytics.')}</p>
 
       <div className="reports-cards">
         <div className="report-card">
-          <h2>Most Visited Monuments</h2>
+          <h2>{t('viewReports.most_visited', 'Most Visited Monuments')}</h2>
           <ul>
             {analytics.mostVisitedMonuments.map(m => (
-              <li key={m.name}><span className="report-label">{m.name}</span> <span className="report-value">{m.visits} visits</span></li>
+              <li key={m.name}><span className="report-label">{m.name}</span> <span className="report-value">{m.visits} {t('viewReports.visits', 'visits')}</span></li>
             ))}
           </ul>
         </div>
         <div className="report-card">
-          <h2>Popular Tours</h2>
+          <h2>{t('viewReports.popular_tours', 'Popular Tours')}</h2>
           <ul>
-            {analytics.popularTours.map(t => (
-              <li key={t.name}><span className="report-label">{t.name}</span> <span className="report-value">{t.bookings} bookings</span></li>
+            {analytics.popularTours.map(tour => (
+              <li key={tour.name}><span className="report-label">{tour.name}</span> <span className="report-value">{tour.bookings} {t('viewReports.bookings', 'bookings')}</span></li>
             ))}
           </ul>
         </div>
         <div className="report-card">
-          <h2>Active Discussions</h2>
+          <h2>{t('viewReports.active_discussions', 'Active Discussions')}</h2>
           <ul>
             {analytics.activeDiscussions.map(d => (
-              <li key={d.topic}><span className="report-label">{d.topic}</span> <span className="report-value">{d.posts} posts</span></li>
+              <li key={d.topic}><span className="report-label">{d.topic}</span> <span className="report-value">{d.posts} {t('viewReports.posts', 'posts')}</span></li>
             ))}
           </ul>
         </div>
         <div className="report-card">
-          <h2>Visitor & Growth Stats</h2>
+          <h2>{t('viewReports.visitor_stats', 'Visitor & Growth Stats')}</h2>
           <ul>
-            <li><span className="report-label">Total Visitors</span> <span className="report-value">{analytics.visitorStats.totalVisitors}</span></li>
-            <li><span className="report-label">User Growth</span> <span className="report-value">{analytics.visitorStats.userGrowth}</span></li>
-            <li><span className="report-label">Content Interactions</span> <span className="report-value">{analytics.visitorStats.contentInteractions}</span></li>
+            <li><span className="report-label">{t('viewReports.total_visitors', 'Total Visitors')}</span> <span className="report-value">{analytics.visitorStats.totalVisitors}</span></li>
+            <li><span className="report-label">{t('viewReports.user_growth', 'User Growth')}</span> <span className="report-value">{analytics.visitorStats.userGrowth}</span></li>
+            <li><span className="report-label">{t('viewReports.content_interactions', 'Content Interactions')}</span> <span className="report-value">{analytics.visitorStats.contentInteractions}</span></li>
           </ul>
         </div>
       </div>
 
       <button className="action-btn primary" onClick={handleExport} style={{marginTop:32}}>
-        Export Analytics
+        {t('viewReports.export_analytics', 'Export Analytics')}
       </button>
     </div>
   );

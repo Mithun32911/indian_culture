@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useUserProgress } from '../context/UserProgressContext';
 import { culturalData } from '../database/data.js';
 import { TextField, Button, Card, CardContent, CardActions, Typography, Box, Chip, Grid, Stack, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
@@ -11,6 +12,7 @@ const Culture = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const { incrementCulturalEvents, incrementTraditionsExplored, addFavorite, removeFavorite, isFavorite } = useUserProgress();
+  const { t } = useTranslation();
   const [selectedItem, setSelectedItem] = useState(null);
   const [dialogImageSrc, setDialogImageSrc] = useState(null);
   const [dialogImageCandidates, setDialogImageCandidates] = useState([]);
@@ -50,10 +52,9 @@ const Culture = () => {
           }}
         >
           <div style={{ flex: '1 1 auto' }}>
-            <h1>Indian Cultural Traditions</h1>
+            <h1>{t('culturePage.title')}</h1>
             <p className="page-subtitle">
-              Explore the vibrant festivals, ancient traditions, and cultural practices 
-              that form the heart of Indian civilization
+              {t('culturePage.subtitle')}
             </p>
           </div>
 
@@ -75,9 +76,9 @@ const Culture = () => {
               fontSize: '0.95rem',
               fontWeight: 600,
             }}
-            title="Back"
+            title={t('nav.back')}
           >
-            Back
+            {t('nav.back')}
           </Button>
         </section>
 
@@ -86,7 +87,7 @@ const Culture = () => {
           <div className="filter-controls">
             <div className="search-box">
               <TextField
-                label="Search cultural traditions..."
+                label={t('culturePage.search_placeholder')}
                 variant="outlined"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -103,7 +104,7 @@ const Culture = () => {
                   size="small"
                   onClick={() => setSelectedType('all')}
                 >
-                  All
+                  {t('culturePage.all')}
                 </Button>
                 {uniqueTypes.map(type => (
                   <Button
@@ -113,7 +114,7 @@ const Culture = () => {
                     size="small"
                     onClick={() => setSelectedType(type)}
                   >
-                    {type}
+                    {t(`culturePage.types.${(type || '').toString().toLowerCase().replace(/[^a-z0-9]+/g, '_')}`, type)}
                   </Button>
                 ))}
               </Stack>
@@ -125,7 +126,7 @@ const Culture = () => {
         <section className="culture-content">
           {filteredData.length === 0 ? (
             <div className="no-results">
-              <p>No cultural traditions found matching your criteria.</p>
+                      <p>{t('culturePage.no_results')}</p>
             </div>
           ) : (
             <div className="culture-grid">
@@ -172,18 +173,21 @@ const Culture = () => {
                       }}
                     >
                       <Box display="flex" alignItems="center" justifyContent="space-between">
-                        <Typography variant="h6">{item.name}</Typography>
-                        <Chip label={item.type} color="primary" size="small" />
+                        <Typography variant="h6">{t(`content.culture.${item.id}.name`, item.name)}</Typography>
+                        {(() => {
+                          const typeKey = (item.type || '').toString().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                          return <Chip label={t(`culturePage.types.${typeKey}`, item.type)} color="primary" size="small" />;
+                        })()}
                       </Box>
 
                       <Typography variant="body2" sx={{ mt: 1 }}>
-                        {item.description}
+                        {t(`content.culture.${item.id}.description`, item.description)}
                       </Typography>
 
                       <Box mt={1}>
-                        <Typography variant="caption"><strong>Region:</strong> {item.region}</Typography><br/>
-                        <Typography variant="caption"><strong>Season:</strong> {item.season}</Typography><br/>
-                        <Typography variant="caption"><strong>Significance:</strong> {item.significance}</Typography>
+                        <Typography variant="caption"><strong>{t('culturePage.region')}:</strong> {t(`content.culture.${item.id}.region`, item.region)}</Typography><br/>
+                        <Typography variant="caption"><strong>{t('culturePage.season')}:</strong> {t(`content.culture.${item.id}.season`, item.season)}</Typography><br/>
+                        <Typography variant="caption"><strong>{t('culturePage.significance')}:</strong> {t(`content.culture.${item.id}.significance`, item.significance)}</Typography>
                       </Box>
 
                       {/* symbol removed as requested */}
@@ -214,7 +218,7 @@ const Culture = () => {
                           else incrementCulturalEvents();
                         }}
                       >
-                        Explore
+                        {t('culturePage.explore')}
                       </Button>
                     </CardActions>
                   </Card>
@@ -227,7 +231,7 @@ const Culture = () => {
         {/* Culture details dialog */}
         {selectedItem && (
           <Dialog open={true} onClose={() => setSelectedItem(null)} maxWidth="sm" fullWidth>
-              <DialogTitle>{selectedItem.name}</DialogTitle>
+              <DialogTitle>{t(`content.culture.${selectedItem.id}.name`, selectedItem.name)}</DialogTitle>
               <Box sx={{ width: '100%', height: 240, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f5f5f5' }}>
                 {dialogImageSrc ? (
                   <img
@@ -249,29 +253,29 @@ const Culture = () => {
               </Box>
             <DialogContent dividers>
               <Box mb={2}>
-                <Typography variant="subtitle1">Region</Typography>
-                <Typography variant="body2">{selectedItem.region}</Typography>
+                <Typography variant="subtitle1">{t('culturePage.dialog_region')}</Typography>
+                <Typography variant="body2">{t(`content.culture.${selectedItem.id}.region`, selectedItem.region)}</Typography>
               </Box>
               <Box mb={2}>
-                <Typography variant="subtitle1">Season</Typography>
-                <Typography variant="body2">{selectedItem.season}</Typography>
+                <Typography variant="subtitle1">{t('culturePage.dialog_season')}</Typography>
+                <Typography variant="body2">{t(`content.culture.${selectedItem.id}.season`, selectedItem.season)}</Typography>
               </Box>
               <Box mb={2}>
-                <Typography variant="subtitle1">Description</Typography>
-                <Typography variant="body2">{selectedItem.description}</Typography>
+                <Typography variant="subtitle1">{t('culturePage.dialog_description')}</Typography>
+                <Typography variant="body2">{t(`content.culture.${selectedItem.id}.description`, selectedItem.description)}</Typography>
               </Box>
               <Box mb={2}>
-                <Typography variant="subtitle1">Significance</Typography>
-                <Typography variant="body2">{selectedItem.significance}</Typography>
+                <Typography variant="subtitle1">{t('culturePage.dialog_significance')}</Typography>
+                <Typography variant="body2">{t(`content.culture.${selectedItem.id}.significance`, selectedItem.significance)}</Typography>
               </Box>
             </DialogContent>
             <DialogActions>
               {isFavorite({ id: selectedItem.id, type: 'culture' }) ? (
-                <Button onClick={() => { removeFavorite({ id: selectedItem.id, type: 'culture' }); }} color="secondary">Unfavorite</Button>
+                <Button onClick={() => { removeFavorite({ id: selectedItem.id, type: 'culture' }); }} color="secondary">{t('culturePage.unfavorite')}</Button>
               ) : (
-                <Button onClick={() => { addFavorite({ id: selectedItem.id, type: 'culture', name: selectedItem.name }); }} color="primary">Fav</Button>
+                <Button onClick={() => { addFavorite({ id: selectedItem.id, type: 'culture', name: selectedItem.name }); }} color="primary">{t('culturePage.favorite')}</Button>
               )}
-              <Button onClick={() => setSelectedItem(null)} color="primary">Close</Button>
+              <Button onClick={() => setSelectedItem(null)} color="primary">{t('culturePage.close')}</Button>
             </DialogActions>
           </Dialog>
         )}
