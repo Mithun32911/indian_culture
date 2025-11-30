@@ -18,7 +18,7 @@ const Home = () => {
         </div>
         <div className="hero-image">
               <img
-                src="/in.png"
+                src="./in.png"
                 alt="Incredible India Cover"
                 className="cover-image"
                 style={{ width: '100%', maxHeight: '340px', objectFit: 'cover', borderRadius: '1.5rem', boxShadow: '0 4px 32px #0004' }}
